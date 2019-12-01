@@ -1,0 +1,142 @@
+ ion-title {
+   text-align: center;
+   --color: rgb(235, 129, 40);
+
+ }
+
+ .scroll-content {
+   background-color: #F7F7F7;
+ }
+
+ ion-card-title {
+   --color: #8DC53F;
+   font-size: 17px;
+ }
+
+ ion-card-subtitle {
+   --color: rgb(235, 129, 40);
+   font-size: 13px;
+   text-transform: none !important;
+ }
+
+ ion-card-content {
+   font-size: 13px;
+   color: #000;
+   padding-left: 15px;
+   padding-bottom: 15px;
+   padding-right: 15px;
+   padding-top: 0;
+ }
+
+ img {
+   height: 220px;
+ }
+
+ .activity_details {
+   padding-top: 10px;
+   color: #888;
+
+   ion-icon {
+     vertical-align: middle;
+   }
+ }
+
+ ion-card-header {
+
+   padding: 15px;
+
+ }
+
+ .sign-up-btn {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   margin: 15px;
+   font-size: 13px;
+   --border-radius: 5px !important;
+   --background: #F1FEEA !important;
+   --background-activated: #D4E4CB !important;
+   --color: #000;
+ }
+
+ .category-block {
+   margin: 12px 0 0 0;
+   padding: 30px 20px;
+   border-radius: 2px;
+   background: #fff;
+   float: left;
+   width: 100%;
+   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+ }
+
+ .category-block h2 {
+   color: #8DC53F;
+   font-size: 18px;
+   font-weight: 600;
+   margin: 0 0 20px 0;
+ }
+
+ .category-block p {
+   font-size: 13px;
+   color: #4A4A4A;
+   margin: 0 0 20px 0;
+ }
+
+ .category-block .btn {
+   font-size: 13px;
+   padding: 9px 20px;
+   font-weight: 600;
+ }
+
+ .btn-outline-default {
+   border: 1px solid #8DC53F;
+   color: #8DC53F;
+ }
+
+
+
+
+
+
+
+ //  ion-modal.thankyou {
+ //    @media (min-width: 300px) and (min-height: 300px) {
+ //      ion-backdrop {
+ //        visibility: visible;
+ //        opacity: 0.4 !important;
+ //      }
+ //    }
+
+ //    .modal-wrapper {
+ //      position: absolute;
+ //      overflow: hidden;
+ //      //max-width: 280px;
+ //      border-radius: 2px;
+ //      width: 90%;
+ //      height: 100%;
+ //      top: 30%;
+ //      bottom: 0;
+ //      left: 0;
+ //      right: 0;
+ //      margin: auto;
+ //      border: 0;
+
+ //    }
+
+ //    .close-text {
+ //      color: white;
+ //      font-size: 1.8rem;
+ //      text-align: center;
+ //      font-weight: bold;
+ //    }
+
+ //    .ion-page {
+ //      height: 70% !important;
+ //      position: absolute;
+ //      bottom: 0;
+ //    }
+
+ //    .content {
+ //      border-radius: 30px;
+ //    }
+ //  }

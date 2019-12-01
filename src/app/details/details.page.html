@@ -1,0 +1,148 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>
+      <img src="assets/imgs/logo-icon.png" alt="">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="back_all">
+    <ion-row>
+      <ion-col>
+        <div class="upload-plus" [style.backgroundImage]="'url('+parent.photoUrl+')'">
+          <i class="camera-icon" (click)="uploadPhoto()"></i>
+        </div>
+        <p class="upload-label">Upload Photo</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="form-control-label no-margin-top">
+          <ion-label>Full Name</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="input_box">
+          <ion-label>
+            <ion-icon src="assets/icon/icon-name.svg"></ion-icon>
+          </ion-label>
+          <ion-input type="text" value="" placeholder="John Smith" [(ngModel)]="parent.fullName"
+            (ionBlur)="onBlurParentData()">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="form-control-label no-margin-top">
+          <ion-label>Phone number</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="input_box">
+          <ion-label>
+            <ion-icon src="assets/icon/icon-phone.svg"></ion-icon>
+          </ion-label>
+          <ion-input type="text" value="" placeholder="+000 0000 000" [(ngModel)]="parent.phone"
+            (ionBlur)="onBlurParentData()"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="form-control-label no-margin-top">
+          <ion-label>Email</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="input_box">
+          <ion-label>
+            <ion-icon src="assets/icon/icon-email.svg"></ion-icon>
+          </ion-label>
+          <ion-input type="text" value="" placeholder="johnsmith@xyz.com" [(ngModel)]="parent.email"
+            (ionBlur)="onBlurParentData()"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-button mode="ios" size="large" expand="full" color="light"
+          (click)="gotoCreditCard()">
+          <div class="colored_buttons">
+            <img src="/assets/icon/icon-card.svg">
+            <ion-label style="display:block;font-size: 14px;">Credit Cards</ion-label>
+          </div>
+        </ion-button>
+
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button mode="ios" size="large" expand="full" color="light"
+          (click)="gotoTicket()">
+          <div class="colored_buttons">
+            <img src="/assets/icon/icon-ticket.svg">
+            <ion-label style="display:block;font-size: 14px;">Tickets</ion-label>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <!-- <ion-item lines="none" class="form-control-label no-margin-top">
+          <ion-label (click)="logOut()">Logout</ion-label>
+        </ion-item> -->
+        <ion-button expand="full" class="button-green" color="button_color" (click)="logOut()">
+          Logout
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar transparent>
+    <ion-grid>
+      <ion-row class="footer_tab">
+        <ion-col class="" (click)="goToMyChild()">
+          <i class="footer-icon child-face"></i>
+          <small> My Kids </small>
+        </ion-col>
+        <ion-col (click)="goToActivityList()">
+          <i class="football footer-icon"></i>
+          <small> Activity</small>
+        </ion-col>
+
+        <ion-col (click)="goToConversation()">
+          <i class="footer-message footer-icon"></i>
+          <small> Chat</small>
+        </ion-col>
+
+        <ion-col class="active">
+          <i class="icon-User footer-icon"></i>
+          <small> Profile </small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

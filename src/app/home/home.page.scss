@@ -1,0 +1,40 @@
+/*********  header ************/
+ion-title {
+  padding-top: 10px;
+
+  .md .title-md .hydrated {
+    text-align: center !important;
+  }
+}
+
+.button-md,
+.button-ios {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 15px;
+  border-radius: 0;
+  height: 5.2rem;
+  margin: 0;
+
+}
+
+ion-content {
+  --overflow: hidden;
+}
+
+ion-item {
+  --padding-start: 0px !important;
+}
+
+
+// /*********  footer ************/
+// ion-footer .toolbar-md,
+// ion-footer .toolbar-ios {
+//   padding: 0;
+//   padding-bottom: 0 !important;
+// }
+
+// .item-md.item-block .item-inner,
+// .item-ios.item-block .item-inner {
+//   border: 0;
+// }

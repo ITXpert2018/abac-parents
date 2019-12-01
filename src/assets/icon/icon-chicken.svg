@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17.959">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f49401;
+      }
+    </style>
+  </defs>
+  <g id="ic-chicken" transform="translate(0 -0.02)">
+    <path id="Path" class="cls-1" d="M0,3.014H6.6A5.355,5.355,0,0,0,4.589,0,6.575,6.575,0,0,1,0,3.014Z" transform="translate(12.025 10.124)"/>
+    <path id="Path-2" data-name="Path" class="cls-1" d="M.093,8.4h9.56C6,7.935,4.608,3.448,7.509.017A7.157,7.157,0,0,0,.093,8.4Z" transform="translate(1.174 4.741)"/>
+    <path id="Path-3" data-name="Path" class="cls-1" d="M0,0A4.137,4.137,0,0,0,4.065,3.644h11.87A4.137,4.137,0,0,0,20,0Z" transform="translate(0 14.335)"/>
+    <path id="Path-4" data-name="Path" class="cls-1" d="M1.563,5.2A4.89,4.89,0,0,1,5.416,3.624L6.975,2.031c0-2.517,2.889-2.6,3.439-.757A1.811,1.811,0,0,1,11.36,4a2.118,2.118,0,0,1-2.114.793L8.082,5.979A4.955,4.955,0,0,1,6.608,10.36c-1.73,1.768-4.293,2.166-5.729.7S-.173,6.977,1.563,5.2Z" transform="translate(8.296 0.02)"/>
+  </g>
+</svg>

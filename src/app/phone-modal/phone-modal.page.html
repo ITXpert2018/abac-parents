@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" defaultHref="/" icon="assets/icon/icon-back.svg"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/imgs/logo.png" id="header_logo" height="40" alt="">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-item lines="none" class="form-control-label">
+    <ion-label>Your <span>Phone Number</span>?</ion-label>
+  </ion-item>
+  <ion-item lines="none" class="input_box">
+    <ion-label>
+      <ion-icon src="assets/icon/icon-phone.svg"></ion-icon>
+    </ion-label>
+    <ion-input type="number" (keyup.enter)="goToChildsPage()" [(ngModel)]="phone"></ion-input>
+  </ion-item>
+
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-button expand="full" class="button-green" color="button_color"
+    (click)="goToChildsPage()">NEXT</ion-button>
+</ion-footer>

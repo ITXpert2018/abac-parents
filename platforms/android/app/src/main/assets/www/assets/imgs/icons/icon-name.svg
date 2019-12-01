@@ -1,0 +1,16 @@
+<svg id="ic-Name" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #d0d0d0;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle" class="cls-1" width="22" height="22"/>
+  <path id="Path" class="cls-2" d="M10,5a5,5,0,1,0-5,5A5.006,5.006,0,0,0,10,5Z" transform="translate(6 2)"/>
+  <path id="Path-2" data-name="Path" class="cls-2" d="M13.327,0A6.257,6.257,0,0,1,9.866,1.039,6.257,6.257,0,0,1,6.4,0C2.158.589.12,2.46,0,5.887s19.858,3.427,19.735,0S17.574.589,13.327,0Z" transform="translate(1.134 12.801)"/>
+</svg>

@@ -1,0 +1,66 @@
+@media (min-width: 300px) and (min-height: 300px) {
+  ion-backdrop {
+    visibility: visible;
+    opacity: 0.4 !important;
+  }
+}
+
+.modal-wrapper {
+  position: absolute;
+  overflow: hidden;
+  //max-width: 280px;
+  border-radius: 2px;
+  width: 90%;
+  height: 100%;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 0;
+
+}
+
+.close-text {
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ion-page {
+  height: 70% !important;
+  position: absolute;
+  bottom: 0;
+}
+
+.content {
+  border-radius: 30px;
+}
+
+.icon_box ion-icon {
+  font-size: 100px;
+
+}
+
+.icon_box h4 {
+  color: #c53535;
+}
+
+.set_width {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.order_btn {
+  background: #c53535;
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 25px;
+  margin-top: 30px;
+}
+
+.btn {
+  color: #000;
+  font-weight: bold;
+}

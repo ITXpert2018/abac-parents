@@ -1,0 +1,11 @@
+<svg id="ic-User" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9b9b9b;
+      }
+    </style>
+  </defs>
+  <ellipse id="Oval" class="cls-1" cx="4.909" cy="5" rx="4.909" ry="5" transform="translate(4.094)"/>
+  <path id="Path" class="cls-1" d="M13.579,0A6.067,6.067,0,0,1,9,2.1,6.069,6.069,0,0,1,4.426,0,10.028,10.028,0,0,0,0,8.348a2.477,2.477,0,0,0,2.455,2.5H15.545A2.477,2.477,0,0,0,18,8.348,10.029,10.029,0,0,0,13.579,0Z" transform="translate(0 9.152)"/>
+</svg>

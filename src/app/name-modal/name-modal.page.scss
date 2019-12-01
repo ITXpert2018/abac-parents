@@ -1,0 +1,20 @@
+/*********  header ************/
+ion-title {
+  padding-top: 10px;
+
+  .md .title-md .hydrated {
+    text-align: center !important;
+  }
+}
+
+ion-content {
+  --overflow: hidden;
+}
+
+ion-item {
+  --padding-start: 0px !important;
+}
+
+ion-input {
+  --placeholder-color: #999;
+}

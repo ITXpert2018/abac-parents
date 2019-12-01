@@ -1,0 +1,102 @@
+/*********  header ************/
+ion-title {
+  padding-top: 10px;
+
+  .md .title-md .hydrated {
+    text-align: center !important;
+  }
+}
+
+ion-content {
+  --overflow: hidden;
+}
+
+ion-item {
+  --padding-start: 0px !important;
+}
+
+ion-input {
+  --placeholder-color: #999;
+}
+
+/******** ion content *********/
+.form-group {
+  float: left;
+  width: 100%;
+}
+
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.add-child {
+  background: #FAFAFA;
+  border: 2px dashed #8DC53F;
+  display: inline-block;
+  width: 100%;
+  min-height: 88px;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.plus-icon {
+  width: 20px;
+  height: 20px;
+  line-height: 22px;
+  background: #8DC53F;
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  border-radius: 100%;
+  margin: 5px auto;
+}
+
+.add-child label {
+  width: 100%;
+  color: #8DC53F;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.child-profile {
+  margin-top: 20px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+
+}
+
+.child-profile img {
+
+  top: 0;
+  left: 15px;
+  bottom: 0;
+  margin: auto;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.child-profile h3 {
+  font-size: 15px;
+  color: #8DC53F;
+  margin: 0;
+  display: flex;
+
+
+}
+
+.child_name {
+  display: flex;
+  align-items: center;
+}

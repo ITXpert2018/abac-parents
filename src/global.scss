@@ -1,0 +1,87 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+// custom colors
+@import 'custom.colors.scss';
+
+
+ion-header .button-inner {
+  color: rgb(235, 129, 40);
+}
+
+ion-back-button {
+  // --icon-margin-top: -25px !important;
+  --icon-font-size: large !important;
+}
+
+.form-control-label {
+  padding-left: 0;
+  margin-top: 120px;
+
+  span {
+    color: #8DC53F;
+  }
+
+  ion-label {
+    padding-left: 0;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #4a4a4a;
+  }
+}
+
+.no-margin-top {
+  margin-top: 0px !important;
+}
+
+.tiny-margin-top {
+  margin-top: 15x !important;
+}
+
+.input_box {
+  border-radius: 5px;
+  border: 0.5px solid #e1e1e1;
+  --background: #f5f5f5;
+
+  ion-input {
+    --background: #f5f5f5;
+  }
+
+  ion-label {
+    margin-left: 15px;
+
+    ion-icon {
+      color: rgb(179, 176, 176);
+      font-size: 25px;
+    }
+  }
+}
+
+.button-green {
+  margin: 0px;
+  font-weight: bold;
+}

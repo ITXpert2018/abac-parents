@@ -1,0 +1,7 @@
+{
+  "name": "abacV4",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

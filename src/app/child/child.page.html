@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" defaultHref="/" icon="assets/icon/icon-back.svg"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/imgs/logo.png" id="header_logo" height="40" alt="">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+  <ion-grid *ngFor="let child of childs" class="child-profile">
+    <ion-row>
+      <ion-col col-3>
+        <img [src]="child.photoUrl" alt="" title="" />
+
+      </ion-col>
+      <ion-col col-9 class="child_name">
+        <h3>{{child.fullName}}</h3>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-grid class="add-child" (click)="goToChildAdd()">
+    <ion-row>
+      <ion-col>
+        <span class="plus-icon">+</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <label class="text">Add Child</label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-button *ngIf="hasChilds" expand="full" class="button-green"
+    color="button_color" (click)="detailsPage()">FINISH
+  </ion-button>
+</ion-footer>

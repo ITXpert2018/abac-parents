@@ -1,0 +1,55 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>activity-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>
+      <img src="assets/imgs/logo-icon.png" alt="">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let category of categories" class="activity-list list"
+    [style.backgroundImage]="'url(' + category.image + ')'" (click)="goToActivityCategory(category)">
+    <div class="overlay"></div>
+    <div class="activity-content">
+      <h3>{{category.name}}</h3>
+      <p>{{category.activities.length}} Activities</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar transparent>
+    <ion-grid>
+      <ion-row class="footer_tab">
+        <ion-col class="" (click)="goToMyChild()">
+          <i class="footer-icon child-face"></i>
+          <small> My Kids </small>
+        </ion-col>
+        <ion-col class="active">
+          <i class="football footer-icon"></i>
+          <small> Activity</small>
+        </ion-col>
+
+        <ion-col (click)="goToConversation()">
+          <i class="footer-message footer-icon"></i>
+          <small> Chat</small>
+        </ion-col>
+
+        <ion-col (click)="goToDetails()">
+          <i class="icon-User footer-icon"></i>
+          <small> Profile </small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" defaultHref="/" icon="assets/icon/icon-back.svg"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{currentCategory.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-list class="category-block">
+    <h2>Football</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur ading elit, sed do eiusmod tempor incididunt utsam labore et dolore magna
+      aliqua. Ut enim</p>
+
+    <button ion-button clear class="btn btn-outline-default" (click)="thankyouOrder()">SIGN UP</button>
+  </ion-list> -->
+  <ion-card *ngFor="let activity of activities">
+    <div style="position:relative !important; ">
+      <img [src]="activity.image">
+      <ion-button mode="ios" class="sign-up-btn" (click)="enrollToActivity(activity)">SIGN UP
+      </ion-button>
+    </div>
+    <ion-card-header>
+      <ion-card-title>{{activity.name}}</ion-card-title>
+      <ion-card-subtitle>{{activity.schoolName}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{activity.description}}
+      <p class="activity_details">
+        <span>{{activity.price}}&nbsp;&#8364;</span>
+        <span style='margin-left: 15px;'>
+          <ion-icon src="/assets/icon/icon-date.svg"></ion-icon>
+          &nbsp;
+          {{activity.start_date.toDate() | date: 'dd MMM'}} - {{activity.end_date.toDate() | date: 'dd MMM'}}
+        </span>
+        <span style='margin-left: 10px'>
+          <ion-icon mode="md" name="time"></ion-icon>
+          {{activity.duration_hrs}} hrs
+        </span>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<!-- &#8364; -->

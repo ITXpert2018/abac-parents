@@ -1,0 +1,40 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>childSelector</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title> My Children
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header>
+      Select child to sign up
+    </ion-list-header>
+
+    <ion-item *ngFor="let child of childrens" (click)="childSelected(child)">
+      <ion-avatar slot="start">
+        <img *ngIf="child.photoUrl" src="child.photoUrl">
+        <img *ngIf="!child.photoUrl" src="/assets/imgs/child-demo.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{child.fullName}}</h2>
+        <h3>Already signed up in: </h3>
+        <p *ngIf="child.activitiesEnrolled"><span
+            *ngFor="let activity of child.activitiesEnrolled; let isLast=last">{{activity.name}} -
+            {{activity.schoolName}} {{isLast ? '' : '; '}} </span></p>
+        <p *ngIf="!child.activitiesEnrolled">No activities</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button expand='block' color="danger" class="order_btn" (click)="cancel()"> Cancel
+  </ion-button>
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" defaultHref="/" icon="assets/icon/icon-back-black.svg"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="d_flx">
+        <img src="parent.photoUrl" height="40" alt="">&nbsp;
+        <p>{{parent.fullName}}</p>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <ul class="conversation">
+      <li *ngFor="let m of messages">
+        <div *ngIf="m.byAdmin == false" class="sent">
+          <div><span>{{m.text}}</span></div>
+        </div>
+        <p *ngIf="m.byAdmin == false" class=" time">{{m.timestamp | date:'dd/MM/yyyy HH:mm' }}</p>
+        <div *ngIf="m.byAdmin == true" class=" replay text-left">
+          <div><span>{{m.text}}</span></div>
+        </div>
+        <p *ngIf="m.byAdmin == true" class="time text-left">{{m.timestamp | date:'dd/MM/yyyy HH:mm'}}</p>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>
+
+<ion-footer no-border>
+    <div>
+      <div class="inputContainer">
+        <ion-input type="text" placeholder="Type a message" [(ngModel)]="inp_text" autofocus="true" padding-start>
+        </ion-input>
+      </div>
+      <div class="send-button-parent">
+        <ion-button mode="ios" (click)="sendMsg()" class="sendBtn" color="transparent">
+          <ion-icon class="sendBtn-icon" src="assets/icon/icon-send-green.svg" color="light"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  <ion-toolbar transparent>
+    <ion-grid>
+      <ion-row class="footer_tab">
+        <ion-col class="" (click)="goToMyChild()">
+          <i class="footer-icon child-face"></i>
+          <small> My Kids </small>
+        </ion-col>
+        <ion-col (click)="goToActivityList()">
+          <i class="football footer-icon"></i>
+          <small> Activity</small>
+        </ion-col>
+
+        <ion-col class="active">
+          <i class="footer-message footer-icon"></i>
+          <small> Chat</small>
+        </ion-col>
+
+        <ion-col (click)="goToDetails()">
+          <i class="icon-User footer-icon"></i>
+          <small> Profile </small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" defaultHref="/" icon="assets/icon/icon-back.svg"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="currentActivity">
+  <div class="top-banner" [style.backgroundImage]="'url(' + currentActivity.image + ')'">
+    <div class="overlay"></div>
+    <div class="banner-content">
+      <h2>{{currentActivity?.name}}</h2>
+      <p>
+        {{currentActivity.start_date?.toDate() | date: 'dd-MM-yyyy'}}
+        to
+        {{currentActivity.end_date?.toDate() | date: 'dd-MM-yyyy'}}</p>
+    </div>
+  </div>
+
+
+  <div *ngIf="currentActivity?.isMeal" class="activity-detail justify-content-end activity5" (click)="openTodaysMenu()">
+    <div class="overlay"></div>
+    <a>Today's Menu</a>
+  </div>
+  <div class="activity-detail activity4" (click)="goToConversation()">
+    <div class="overlay"></div>
+    <a>Communications</a>
+  </div>
+  <div *ngIf="!currentActivity?.isMeal" class="activity-detail justify-content-end activity3" (click)="goToGallery()">
+    <div class="overlay"></div>
+    <a>Photos</a>
+  </div>
+  <div *ngIf="!currentActivity?.isMeal" class="activity-detail activity2" (click)="goToReports()">
+    <div class="overlay"></div>
+    <a>Reports</a>
+  </div>
+  <div class="activity-detail  justify-content-end activity1" (click)="goToConfiguration()">
+    <div class="overlay"></div>
+    <a>Configuration</a>
+  </div>
+</ion-content>

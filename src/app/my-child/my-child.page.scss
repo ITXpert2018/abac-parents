@@ -1,0 +1,318 @@
+      //  /*********  header ************/
+      //  ion-title {
+      //    text-align: center;
+      //    padding-top: 20px;
+      //  }
+
+      //  .button-md,
+      //  .button-ios {
+      //    font-size: 16px;
+      //    font-weight: 600;
+      //    padding: 12px 15px;
+      //    border-radius: 0;
+      //    height: 5.2rem;
+      //    margin: 0;
+
+      //  }
+
+      // .content-md,
+      // .content-ios {
+      //   background-color: #F7F7F7;
+      // }
+      ion-content {
+        --background: #f5f5f5;
+        --padding-top: 10px;
+        --padding-bottom: 10px;
+        //--padding-start: 10px;
+        --padding-end: 10px;
+
+        // --overflow: vertical;
+      }
+
+      ion-item {
+        --padding-start: 0px !important;
+      }
+
+      ion-input {
+        --placeholder-color: #999;
+      }
+
+      ion-list {
+        padding: 0px !important;
+      }
+
+      ion-grid {
+        padding: 0px !important;
+      }
+
+      ion-row {
+        padding: 0px !important;
+
+      }
+
+      ion-col {
+        padding: 0px !important;
+      }
+
+
+      .kids-section {
+        height: 160px;
+        margin: 0;
+        float: left;
+        width: 100vw;
+        background: #ffffff;
+      }
+
+      .swiper-slide {
+        width: 80px !important;
+        margin-left: 10px;
+      }
+
+      .kids-block {
+        margin: 0;
+        padding: 0;
+        float: left;
+        text-align: center;
+
+      }
+
+      .kids-img {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 2px solid #FFEFD6;
+      }
+
+      .kids-img img {
+        position: absolute;
+        top: 0;
+
+        bottom: 0;
+        min-height: 100%;
+        object-fit: cover;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+      }
+
+      .slide-zoom {
+        width: 150px;
+      }
+
+      .scroll-content {
+        padding: 0 !important;
+      }
+
+      .add-kid .kids-img {
+        border: 1px dashed #8DC53F;
+        background: #FAFAFA;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .plus-icon {
+        width: 20px;
+        height: 20px;
+        line-height: 22px;
+        font-size: 14px;
+        padding-left: 1px;
+        background: #8DC53F;
+        color: #ffffff;
+        text-align: center;
+        display: block;
+        border-radius: 100%;
+        margin: auto;
+      }
+
+
+      .add-kid p {
+        color: #8DC53F;
+        font-weight: 600;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .kids-block p {
+        color: #F49401;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .grey-heading {
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #9B9B9B;
+        font-size: 14px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+      }
+
+      .activity-section {
+        padding: 24px 0 0 0;
+        float: left;
+        width: 100%;
+      }
+
+      .activity-block {
+        margin: 0 0 5px 0;
+        padding: 5px;
+        border-radius: 2px;
+        background: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+        float: left;
+        width: 100%;
+        font-weight: 700;
+        color: #9B9B9B;
+        font-size: 11px;
+        line-height: normal;
+        position: relative;
+      }
+
+      .align-items-center {
+        -webkit-box-align: center !important;
+
+        align-items: center !important;
+      }
+
+      .d-flex {
+
+        display: flex !important;
+      }
+
+      .row {
+
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+
+      .activity-container {
+        //text-align: center;
+        padding: 15px 10px 15px 10px;
+      }
+
+      .text-center {
+        display: flex;
+        text-align: center !important;
+      }
+
+      .time {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 20px;
+        color: #F49401;
+        align-items: center;
+        display: flex;
+      }
+
+      .activity-name {
+        font-size: 14px;
+        color: #4A4A4A;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+      }
+
+      .activity-block p {
+        margin: 0;
+      }
+
+      .activity-section h3 {
+        font-size: 16px;
+      }
+
+
+      .activity-school {
+        border-radius: 2px;
+        background: #f9f9f9;
+        display: inline-block;
+        padding: 6px 7px;
+        color: #8DC53F;
+        font-size: 10px;
+        margin: 10px 0 0 0 !important;
+      }
+
+      .enrolled-kid {
+        border-radius: 2px;
+        background: #f9f9f9;
+        display: inline-block;
+        padding: 6px 7px;
+        color: #F49401;
+        font-size: 10px;
+        margin: 10px 0 0 0 !important;
+      }
+
+      .hours {
+        position: absolute;
+        //top: -15px;
+        right: 0;
+        border-radius: 0px 2px;
+        background: #f2ffec;
+        padding: 6px 3px;
+      }
+
+
+
+
+      .footer_tab {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer_tab ion-icon {
+        font-size: 20px;
+      }
+
+      .icon-User {
+        background: url(/assets/icon/footer-User.svg) center center / contain no-repeat;
+      }
+
+      .footer-message {
+        background: url(/assets/icon/footer-message.svg) center center / contain no-repeat;
+      }
+
+      .child-face {
+        background: url(/assets/icon/child-face-green.svg) center center / contain no-repeat;
+      }
+
+      .football {
+        background: url(/assets/icon/football.svg) center center / contain no-repeat;
+      }
+
+
+      .footer-icon {
+        margin: 0;
+        padding: 0;
+        width: 18px;
+        height: 20px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .footer_tab small {
+        display: none;
+        margin-top: 2px;
+      }
+
+      .footer_tab .active small {
+        display: block;
+        color: #8DC53F;
+
+      }

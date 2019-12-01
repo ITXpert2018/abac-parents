@@ -1,0 +1,210 @@
+/*********  header ************/
+// ion-title {
+//   text-align: center;
+//   padding-top: 20px;
+// }
+
+// .button-md,
+// .button-ios {
+//   font-size: 16px;
+//   font-weight: 600;
+//   padding: 12px 15px;
+//   border-radius: 0;
+//   height: 5.2rem;
+//   margin: 0;
+
+// }
+
+/*********  footer ************/
+ion-footer .toolbar-md,
+ion-footer .toolbar-ios {
+  padding: 0;
+  padding-bottom: 0 !important;
+}
+
+//********** body ***********//
+
+ion-content {
+  --background: #f5f5f5;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  // --overflow: hidden;
+}
+
+ion-item {
+  --padding-start: 0px !important;
+}
+
+ion-input {
+  --placeholder-color: #999;
+}
+
+
+.upload-plus {
+  width: 155px;
+  height: 155px;
+  background: #fafafa;
+  border: 0.5px solid #e7e7e7;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: relative;
+  // background: url(../../assets/imgs/kids-1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.camera-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../assets/icon/icon-camera-white.svg) center center / 40px no-repeat;
+}
+
+.upload-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A4A4A;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back_all {
+  background: #fff;
+}
+
+.scroll-content {
+  background: #f7f7f7;
+}
+
+
+
+/*############ input style  ##########*/
+
+
+
+
+// .item-md.item-block .item-inner {
+//   border: 0;
+// }
+
+// .input_box {
+//   margin: 0;
+//   padding: 0 0 0 20px;
+//   height: 50px;
+//   border-radius: 5px;
+//   background: #fafafa !important;
+//   border: 0.5px solid #e7e7e7;
+// }
+
+// .input_btn {
+//   margin: auto;
+//   padding-left: 18px;
+//   height: 50px;
+//   border-radius: 5px;
+//   background: #fafafa !important;
+//   border: 0.5px solid #e7e7e7;
+//   text-align: center;
+// }
+
+// .input_btn .button-inner {
+//   color: rgb(77, 77, 77);
+
+// }
+
+// .input_box .item-inner {
+//   padding: 0;
+//   border: 0px;
+// }
+
+
+/*********** footer**************/
+
+.footer_tab {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer_tab ion-icon {
+  font-size: 20px;
+}
+
+.icon-User {
+  background: url(../../assets/icon/footer-user-green.svg) center center / contain no-repeat;
+}
+
+.footer-message {
+  background: url(../../assets/icon/footer-message.svg) center center / contain no-repeat;
+}
+
+.child-face {
+  background: url(../../assets/icon/child-face.svg) center center / contain no-repeat;
+}
+
+.football {
+  background: url(../../assets/icon/football.svg) center center / contain no-repeat;
+}
+
+
+
+.footer-icon {
+  margin: 0;
+  padding: 0;
+  width: 18px;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.footer_tab small {
+  display: none;
+  margin-top: 2px;
+}
+
+.footer_tab .active small {
+  display: block;
+  color: #8DC53F;
+
+}
+
+.icon_card {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  background: url(../../assets/icon/icon-card.svg) center center / cover no-repeat;
+  margin-top: 10px;
+
+}
+
+.icon_ticket {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  background: url(../../assets/icon/icon-ticket.svg) center center / cover no-repeat;
+  margin-top: 10px;
+}
+
+.color_btn .button-inner {
+  color: #8DC53F;
+  padding-bottom: 10px;
+}
+
+
+.color_btn .input_btn {
+  border: none;
+  background: #f7f7f7;
+  height: 54px;
+}
+
+.colored_buttons {
+  color: #8DC53F !important;
+  // height: 100%;
+}

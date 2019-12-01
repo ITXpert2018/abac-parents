@@ -1,0 +1,202 @@
+/*********  header ************/
+ion-title {
+  text-align: center;
+  --color: rgb(235, 129, 40);
+}
+
+ion-content {
+  --background: #f5f5f5;
+}
+
+.button-md,
+.button-ios {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 15px;
+  border-radius: 0;
+  height: 5.2rem;
+  margin: 0;
+
+}
+
+.top-banner {
+  height: 300px;
+  width: 100%;
+  // background-image: url('/assets/imgs/football.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.activity5 {
+  height: 100px;
+  width: 100%;
+  background-image: url('/assets/imgs/activity-detail-5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.activity4 {
+  height: 100px;
+  width: 100%;
+  background-image: url('/assets/imgs/activity-detail-4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.activity3 {
+  height: 100px;
+  width: 100%;
+  background-image: url('/assets/imgs/activity-detail-3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.activity2 {
+  height: 100px;
+  width: 100%;
+  background-image: url('/assets/imgs/activity-detail-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.activity1 {
+  height: 100px;
+  width: 100%;
+  background-image: url('/assets/imgs/activity-detail-1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// .banner-content {
+//   position: relative;
+// }
+
+.banner-content {
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+
+  h2 {
+    font-weight: bold;
+  }
+}
+
+.justify-content-end {
+  -webkit-box-pack: end !important;
+
+  justify-content: flex-end !important;
+}
+
+.banner-content p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 19px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 100%;
+  color: #ffffff;
+}
+
+.scroll-content {
+  padding: 0 !important;
+}
+
+.overlay {
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.activity-detail {
+  margin: 0;
+  padding: 15px 13px 15px 34px;
+  float: left;
+  width: 100%;
+  min-height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.activity-detail a {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  padding-right: 13px;
+  text-decoration: none;
+}
+
+.activity-detail a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 0;
+  width: 7px;
+  height: 15px;
+  background: url(/assets/imgs/icon-arrow.png) center center / contain no-repeat;
+
+
+}
+
+
+ion-modal.menuModal {
+  @media (min-width: 300px) and (min-height: 300px) {
+    ion-backdrop {
+      visibility: visible;
+      opacity: 0.7 !important;
+    }
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    overflow: hidden;
+    //max-width: 280px;
+
+    width: 90%;
+    height: 100%;
+    top: 30%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+
+  }
+
+  .close-text {
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .ion-page {
+    height: 70% !important;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .content {
+    border-radius: 7px;
+    overflow: hidden;
+
+  }
+}

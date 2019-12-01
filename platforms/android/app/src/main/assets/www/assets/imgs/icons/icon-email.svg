@@ -1,0 +1,16 @@
+<svg id="ic-Email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #d0d0d0;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle" class="cls-1" width="22" height="22"/>
+  <path id="Path" class="cls-2" d="M19.6,2.25A2.308,2.308,0,0,0,17.32,0H2.281A2.308,2.308,0,0,0,0,2.25L9.8,6.667Z" transform="translate(1.2 4)"/>
+  <path id="Path-2" data-name="Path" class="cls-2" d="M10.058,4.215a.869.869,0,0,1-.371.087.57.57,0,0,1-.314-.087L0,0V8.51a2.242,2.242,0,0,0,2.167,2.308H17.235a2.241,2.241,0,0,0,2.2-2.279V0Z" transform="translate(1.284 8.183)"/>
+</svg>

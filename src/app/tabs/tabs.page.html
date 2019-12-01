@@ -1,0 +1,29 @@
+<ion-tabs appSwipetab (ionTabsDidChange)="ionTabsDidChange($event)" (tabChange)="onTabChange($event)" #myTabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="my-child">
+      <!-- <ion-icon name="child-face"></ion-icon> -->
+      <ion-icon class="icon-User footer-icon"></ion-icon>
+      <ion-label>My Kids</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="activity-list">
+      <!-- <ion-icon name="football"></ion-icon> -->
+      <ion-icon class="icon-User footer-icon"></ion-icon>
+      <ion-label>Activity</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="conversation">
+      <!-- <ion-icon name="footer-message"></ion-icon> -->
+      <ion-icon class="icon-User footer-icon"></ion-icon>
+      <ion-label>Chat</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="details">
+      <ion-icon class="icon-User footer-icon"></ion-icon>
+      <!-- <i class="icon-User footer-icon"></i> -->
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
