@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo.png\" id=\"header_logo\" height=\"40\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content class=\"ion-padding\">\r\n\r\n  <ion-grid *ngFor=\"let child of childs\" class=\"child-profile\">\r\n    <ion-row>\r\n      <ion-col col-3>\r\n        <img [src]=\"child.photoUrl\" alt=\"\" title=\"\" />\r\n\r\n      </ion-col>\r\n      <ion-col col-9 class=\"child_name\">\r\n        <h3>{{child.fullName}}</h3>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n  <ion-grid class=\"add-child\" (click)=\"goToChildAdd()\">\r\n    <ion-row>\r\n      <ion-col>\r\n        <span class=\"plus-icon\">+</span>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <label class=\"text\">Add Child</label>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-button *ngIf=\"hasChilds\" expand=\"full\" class=\"button-green\" color=\"button_color\" (click)=\"detailsPage()\">FINISH\r\n  </ion-button>\r\n</ion-footer>"
+module.exports = "<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo.png\" id=\"header_logo\" height=\"40\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content class=\"ion-padding\">\r\n\r\n  <ion-grid *ngFor=\"let child of childs\" class=\"child-profile\">\r\n    <ion-row>\r\n      <ion-col col-3>\r\n        <ion-avatar slot=\"start\">\r\n        <img [src]=\"child.photoUrl\" alt=\"\" title=\"\" />\r\n         </ion-avatar> \r\n      </ion-col>\r\n      <ion-col col-9 class=\"child_name\">\r\n        <h3>{{child.fullName}}</h3>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n  <ion-grid class=\"add-child\" (click)=\"goToChildAdd()\">\r\n    <ion-row>\r\n      <ion-col>\r\n        <span class=\"plus-icon\">+</span>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <label class=\"text\">Add Child</label>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-button *ngIf=\"hasChilds\" expand=\"full\" class=\"button-green\"\r\n    color=\"button_color\" (click)=\"detailsPage()\">FINISH\r\n  </ion-button>\r\n</ion-footer>"
 
 /***/ }),
 
@@ -89,6 +89,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -105,15 +108,13 @@ var ChildPage = /** @class */ (function () {
     }
     ChildPage.prototype.ionViewWillEnter = function () {
         var _this = this;
-        //subscribe to places collection
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens')
-            .snapshotChanges().subscribe(function (serverItems) {
+        firebase__WEBPACK_IMPORTED_MODULE_6__["database"]().ref('/childrens/').once('value', function (snapshot) {
             _this.childs = [];
-            serverItems.forEach(function (a) {
-                _this.hasChilds = true;
-                var child = a.payload.doc.data();
-                child.id = a.payload.doc.id;
-                _this.childs.push(child);
+            snapshot.forEach(function (snap) {
+                if (snap.val().parentId == _this.auth.getUid()) {
+                    _this.hasChilds = true;
+                    _this.childs.push(snap.val());
+                }
             });
         });
         console.log('view will enter child Page');

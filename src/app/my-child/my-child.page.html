@@ -24,7 +24,7 @@
         <ion-slide *ngFor="let k of childs">
           <div class="kids-block" (click)="childSelected(k)">
             <div class="kids-img">
-              <img *ngIf="k.photoUrl" src="k.photoUrl" alt="" title="" />
+              <img *ngIf="k.photoUrl" [src]="k.photoUrl" alt="" title="" />
               <img *ngIf="!k.photoUrl" src="/assets/imgs/child-demo.png" alt="" title="" />
             </div>
             <p>{{k.fullName}}</p>
@@ -46,149 +46,31 @@
   <div class="activity-section">
     <div class="container">
       <h2 class="grey-heading">Activities</h2>
-      <!--<div class="activity-block">
-        <div class="row d-flex align-items-center">
-            <div class="col-md-3 col-sm-3 col-3 pr-2 text-center">
-                <h3 class="time">16:00</h3>
-            </div>
-            <div class="col-md-9 col-sm-9 col-9 pl-2">
-                <h4 class="activity-name">Social Science Exersice-2</h4>
-                <p class="activity-details">Social Science Revision</p>
-                <p class="activity-school">Detla School</p>
-                <p class="hours">2 Hours</p>
-            </div>
-        </div>
-   </div>-->
-      <ion-list *ngFor="let activity of enrolledActivities" class="activity-block"
-        (click)="goToActivityDetails(activity)">
-        <ion-grid>
-          <ion-row>
+
+      <ion-list *ngFor="let child of childs" class="activity-block"
+        (click)="goToActivityDetails(child.activitiesEnrolled[0])">
+        <ion-grid *ngIf="child.activitiesEnrolled" >
+          <ion-row *ngFor="let activity of child.activitiesEnrolled">
             <ion-col size="2" class="text-center">
-              <h3 class="time">{{momentjs(activity.start_date.toDate()).format('HH:mm')}}</h3>
+              <h3 class="time">{{activity.detail.starttime}}</h3> 
             </ion-col>
             <ion-col size="8">
               <div class="activity-container">
                 <h4 class="activity-name">{{activity.name}}</h4>
                 <p class="activity-details">{{activity.description}}</p>
-                <p class="activity-school">{{activity.schoolName}}</p>
-                <p class="enrolled-kid"><span
-                    *ngFor="let childName of activity.childNames; let isLast=last">{{childName}}
-                    {{isLast ? '' : '; '}}</span></p>
+                <p class="activity-school">{{child.schoolName}}</p>
+                 <p class="enrolled-kid"><span>{{child.fullName}}</span></p>
               </div>
 
             </ion-col>
             <ion-col size="2">
-              <p class="hours">{{activity.duration_hrs}} Hours</p>
+              <p class="hours">{{activity.detail.duration}} Hours</p>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-list>
 
 
-      <!-- <ion-list class="activity-block" (click)="goToActivityDetails()">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" class="text-center">
-              <h3 class="time">16:00</h3>
-            </ion-col>
-            <ion-col size="8">
-              <div class="activity-container">
-                <h4 class="activity-name">Social Science Exersice-2</h4>
-                <p class="activity-details">Social Science Revision</p>
-                <p class="activity-school">Detla School</p>
-              </div>
-
-            </ion-col>
-            <ion-col size="2">
-              <p class="hours">2 Hours</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list>
-
-      <ion-list class="activity-block" (click)="goToActivityDetails()">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" class="text-center">
-              <h3 class="time">16:00</h3>
-            </ion-col>
-            <ion-col size="8">
-              <div class="activity-container">
-                <h4 class="activity-name">Social Science Exersice-2</h4>
-                <p class="activity-details">Social Science Revision</p>
-                <p class="activity-school">Detla School</p>
-              </div>
-
-            </ion-col>
-            <ion-col size="2">
-              <p class="hours">2 Hours</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list>
-
-      <ion-list class="activity-block" (click)="goToActivityDetails()">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" class="text-center">
-              <h3 class="time">16:00</h3>
-            </ion-col>
-            <ion-col size="8">
-              <div class="activity-container">
-                <h4 class="activity-name">Social Science Exersice-2</h4>
-                <p class="activity-details">Social Science Revision</p>
-                <p class="activity-school">Detla School</p>
-              </div>
-
-            </ion-col>
-            <ion-col size="2">
-              <p class="hours">2 Hours</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list>
-
-      <ion-list class="activity-block" (click)="goToActivityDetails()">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" class="text-center">
-              <h3 class="time">16:00</h3>
-            </ion-col>
-            <ion-col size="8">
-              <div class="activity-container">
-                <h4 class="activity-name">Social Science Exersice-2</h4>
-                <p class="activity-details">Social Science Revision</p>
-                <p class="activity-school">Detla School</p>
-              </div>
-
-            </ion-col>
-            <ion-col size="2">
-              <p class="hours">2 Hours</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list>
-
-      <ion-list class="activity-block" (click)="goToActivityDetails()">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" class="text-center">
-              <h3 class="time">16:00</h3>
-            </ion-col>
-            <ion-col size="8">
-              <div class="activity-container">
-                <h4 class="activity-name">Social Science Exersice-2</h4>
-                <p class="activity-details">Social Science Revision</p>
-                <p class="activity-school">Detla School</p>
-              </div>
-
-            </ion-col>
-            <ion-col size="2">
-              <p class="hours">2 Hours</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list> -->
 
     </div>
   </div>

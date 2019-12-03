@@ -110,8 +110,6 @@ let PasswordModalPage = class PasswordModalPage {
         //get data storage for this user
         this.existingUser = {};
         this.storage.get('existingUser').then((user) => {
-            console.log('existingUser in storage:');
-            console.log(user);
             this.existingUser = user;
         });
     }
@@ -123,16 +121,13 @@ let PasswordModalPage = class PasswordModalPage {
             this.loadingService.present();
             this.existingUser.password = this.password;
             this.auth.signIn(this.existingUser.email, this.existingUser.password).then((data) => {
-                // this.router.navigate(['/child']).then(() => {
-                //   if (this.loadingService.isLoading)
-                //     this.loadingService.dismiss();
-                // })
-                console.log('sign in ok return then promise');
-                console.log(data);
+                this.router.navigate(['/child']).then(() => {
+                    if (this.loadingService.isLoading)
+                        this.loadingService.dismiss();
+                });
             }, (err) => {
                 if (this.loadingService.isLoading) {
                     this.loadingService.dismiss().then(() => {
-                        console.log('error: ', err);
                         this.alert.customMessage(err);
                     });
                 }

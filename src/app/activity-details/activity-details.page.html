@@ -13,14 +13,14 @@
     <div class="banner-content">
       <h2>{{currentActivity?.name}}</h2>
       <p>
-        {{currentActivity.start_date?.toDate() | date: 'dd-MM-yyyy'}}
+        {{currentActivity.start_date}}
         to
-        {{currentActivity.end_date?.toDate() | date: 'dd-MM-yyyy'}}</p>
+        {{currentActivity.end_date}}</p>
     </div>
   </div>
 
 
-  <div *ngIf="currentActivity?.isMeal" class="activity-detail justify-content-end activity5" (click)="openTodaysMenu()">
+  <div *ngIf="currentActivity.isMeal == 'true'" class="activity-detail justify-content-end activity5" (click)="openTodaysMenu()">
     <div class="overlay"></div>
     <a>Today's Menu</a>
   </div>
@@ -28,11 +28,11 @@
     <div class="overlay"></div>
     <a>Communications</a>
   </div>
-  <div *ngIf="!currentActivity?.isMeal" class="activity-detail justify-content-end activity3" (click)="goToGallery()">
+  <div *ngIf="currentActivity.isMeal == 'false'" class="activity-detail justify-content-end activity3" (click)="goToGallery()">
     <div class="overlay"></div>
     <a>Photos</a>
   </div>
-  <div *ngIf="!currentActivity?.isMeal" class="activity-detail activity2" (click)="goToReports()">
+  <div *ngIf="currentActivity?.isMeal == 'false'" class="activity-detail activity2" (click)="goToReports()">
     <div class="overlay"></div>
     <a>Reports</a>
   </div>

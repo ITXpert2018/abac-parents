@@ -63,7 +63,10 @@ export interface Activity {
   isMeal?: boolean;
   categoryId?: string;
 }
+export interface ActivityDetail {
+  report: string;
 
+}
 export interface ChildActivity extends Activity {
   childNames?: string[];
 }

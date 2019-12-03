@@ -114,8 +114,6 @@ var PasswordModalPage = /** @class */ (function () {
         //get data storage for this user
         this.existingUser = {};
         this.storage.get('existingUser').then(function (user) {
-            console.log('existingUser in storage:');
-            console.log(user);
             _this.existingUser = user;
         });
     };
@@ -128,16 +126,13 @@ var PasswordModalPage = /** @class */ (function () {
             this.loadingService.present();
             this.existingUser.password = this.password;
             this.auth.signIn(this.existingUser.email, this.existingUser.password).then(function (data) {
-                // this.router.navigate(['/child']).then(() => {
-                //   if (this.loadingService.isLoading)
-                //     this.loadingService.dismiss();
-                // })
-                console.log('sign in ok return then promise');
-                console.log(data);
+                _this.router.navigate(['/child']).then(function () {
+                    if (_this.loadingService.isLoading)
+                        _this.loadingService.dismiss();
+                });
             }, function (err) {
                 if (_this.loadingService.isLoading) {
                     _this.loadingService.dismiss().then(function () {
-                        console.log('error: ', err);
                         _this.alert.customMessage(err);
                     });
                 }

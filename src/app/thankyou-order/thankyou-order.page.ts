@@ -25,6 +25,7 @@ export class ThankyouOrderPage implements OnInit {
   }
 
   goToActivityDetails() {
+    console.log(this.activity);
     this.router.navigate(['/activity-details/' + this.activity.id]);
     this.modalCtrl.dismiss();
   }

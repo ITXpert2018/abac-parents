@@ -135,32 +135,27 @@ var ChildModifyPage = /** @class */ (function () {
         this.child.aminesIntolerant = false;
         this.child.lactoseIntolerant = false;
         this.childId = this.route.snapshot.params['childId'];
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(this.childId).valueChanges().subscribe(function (data) {
-            // console.log(data);
-            _this.child = data;
-            if (_this.child.otherFamilyContact == undefined) {
-                var otherFamilyContactObject = { fullName: '', email: '', phone: '' };
-                _this.child.otherFamilyContact = otherFamilyContactObject;
-            }
+        firebase__WEBPACK_IMPORTED_MODULE_9__["database"]().ref('/childrens/').once('value', function (snapshot) {
+            snapshot.forEach(function (snap) {
+                if (snap.val().id == _this.childId) {
+                    _this.child = snap.val();
+                    if (_this.child.otherFamilyContact == undefined) {
+                        var otherFamilyContactObject = { fullName: '', email: '', phone: '' };
+                        _this.child.otherFamilyContact = otherFamilyContactObject;
+                    }
+                    return;
+                }
+            });
         });
         //find all schools
-        this.db.collection('schools').snapshotChanges().subscribe(function (serverItems) {
+        firebase__WEBPACK_IMPORTED_MODULE_9__["database"]().ref('/schools/').once('value', function (snapshot) {
             _this.schools = [];
-            serverItems.forEach(function (item) {
-                var school = item.payload.doc.data();
-                school.id = item.payload.doc.id;
-                console.log('this school', school);
+            snapshot.forEach(function (snap) {
+                var school = snap.val();
+                school.id = snap.key;
                 _this.schools.push(school);
             });
         });
-        // if (this.loadingService.isLoading) {
-        //   this.loadingService.dismiss();
-        // }
-        // console.log(this.schools);
-        // this.db.collection('places').doc(this.placeId).valueChanges().pipe(take(1))
-        //   .subscribe(data => {
-        //     this.currentPlace = data;
-        //   });
     };
     ChildModifyPage.prototype.glutenSwitch = function () {
         if (this.child.glutenIntolerant == false) {
@@ -293,7 +288,8 @@ var ChildModifyPage = /** @class */ (function () {
     ChildModifyPage.prototype.childModify = function () {
         if (this.acceptedAgreement) {
             if (this.child.fullName != '' || this.child.fullName != undefined) {
-                this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(this.childId).set(this.child, { merge: true });
+                firebase__WEBPACK_IMPORTED_MODULE_9__["database"]().ref('/childrens').child(this.childId).update(this.child);
+                //    this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(this.childId).set(this.child, { merge: true });
                 this.router.navigate(['/my-child']);
             }
             else {

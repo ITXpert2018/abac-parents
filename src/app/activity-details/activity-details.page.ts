@@ -5,6 +5,7 @@ import { Activity } from 'src/interfaces';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { take } from 'rxjs/operators';
 import { AlertMessageService } from '../services/alert-message.service';
+import * as firebase from "firebase";
 
 @Component({
   selector: 'app-activity-details',
@@ -14,6 +15,8 @@ import { AlertMessageService } from '../services/alert-message.service';
 export class ActivityDetailsPage implements OnInit {
   activityId: string;
   currentActivity: Activity = {};
+  activities: Activity[] = [];
+
   title: string;
   constructor(
     private route: ActivatedRoute,
@@ -30,17 +33,26 @@ export class ActivityDetailsPage implements OnInit {
     this.title = '';
     this.activityId = this.route.snapshot.params['activityId'];
     // console.log('activityId ', this.activityId);
-    this.db.collection('activities').doc(this.activityId).valueChanges().pipe(take(1))
-      .subscribe(data => {
-        this.currentActivity = data;
-        if (this.currentActivity.isMeal) {
-          this.title = 'Meal Details';
+
+
+    firebase.database().ref('/activities/').once('value', (snapshot) => {
+      this.activities = [];
+      snapshot.forEach( snap => {
+        if(snap.val().id == this.activityId){
+          this.currentActivity = snap.val();
+
+          if (this.currentActivity.isMeal ==true) {
+            this.title = 'Meal Details';
+          }
+          else {
+            this.title = 'Activity Details';
+          }
+          console.log(this.currentActivity);
+          return;
         }
-        else {
-          this.title = 'Activity Details';
-        }
-        // console.log('current activity ', this.currentActivity);
       });
+    });      
+
   }
 
 
@@ -53,11 +65,12 @@ export class ActivityDetailsPage implements OnInit {
   }
 
   goToGallery() {
-    this.alert.customMessage('Not yet implemented!');
+    this.router.navigate(['/activiy-detail-photo/' + this.activityId]);
+
   }
 
   goToReports() {
-    this.alert.customMessage('Not yet implemented!');
+    this.router.navigate(['/activiy-detail-report/' + this.activityId]);
   }
 
   goToConfiguration() {

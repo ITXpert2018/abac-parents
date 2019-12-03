@@ -6,6 +6,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Child, ChildActivity } from 'src/interfaces';
 import * as moment from 'moment';
 import { take } from 'rxjs/operators';
+import * as firebase from "firebase";
 
 @Component({
   selector: 'app-my-child',
@@ -16,6 +17,7 @@ export class MyChildPage implements OnInit {
   public childs: Child[];
   public enrolledActivities: ChildActivity[];
   public momentjs: any = moment;
+  activiyDetail:  [];
 
   constructor(
     private db: AngularFirestore,
@@ -28,50 +30,18 @@ export class MyChildPage implements OnInit {
     this.enrolledActivities = [];
     // this.dataShare.refreshMyChilds();
     //subscribe to childrens collection
-    this.db.collection('parents').doc(this.auth.getUid()).collection('childrens')
-      .snapshotChanges().subscribe(serverItems => {
-        this.childs = [];
-        serverItems.forEach(a => {
-          //this.hasChilds = true;
-          let child: Child = a.payload.doc.data();
-          // console.log(child);
-          child.id = a.payload.doc.id;
 
-          this.childs.push(child);
-          // this.dataShare.addChild(child);
-
-          if (child.activitiesEnrolled) {
-            for (var i = 0; i < child.activitiesEnrolled.length; i++) {
-              //check if activity already added
-              var found = false;
-              var index = 0;
-              for (var j = 0; j < this.enrolledActivities.length; j++) {
-                if (this.enrolledActivities[j].id == child.activitiesEnrolled[i].id) {
-                  found = true;
-                  index = j;
-                  break;
-                }
-              }
-              if (!found) {
-                let newChildActivity: ChildActivity = child.activitiesEnrolled[i];
-                newChildActivity.childNames = [];
-                newChildActivity.childNames.push(child.fullName);
-                this.enrolledActivities.push(newChildActivity);
-              }
-              else {
-                //activity found add just the child name
-                if (!this.enrolledActivities[index].childNames) {
-                  this.enrolledActivities[index].childNames = [];
-                }
-                this.enrolledActivities[index].childNames.push(child.fullName);
-              }
-            }
-          }
-
-          // this.enrolledActivities.push.apply(this.enrolledActivities, child.activitiesEnrolled);
-        });
+    firebase.database().ref('/childrens/').once('value', (snapshot) => {
+      this.childs = [];
+      snapshot.forEach( snap => {
+        if(snap.val().parentId == this.auth.getUid()){
+          this.childs.push(snap.val());
+          console.log(this.childs);
+        }
       });
-    // console.log('view will enter my child Page');
+    });    
+    
+
   }
 
   ngOnInit() {

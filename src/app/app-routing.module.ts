@@ -29,6 +29,10 @@ const routes: Routes = [
   { path: 'password', loadChildren: './password/password.module#PasswordPageModule' },
   { path: 'child-modify/:childId', loadChildren: './child-modify/child-modify.module#ChildModifyPageModule', canActivate: [AuthGuard] },
   { path: 'child-selector', loadChildren: './child-selector/child-selector.module#ChildSelectorPageModule' },
+  { path: 'activiy-detail-report/:activityId', loadChildren: './activiy-detail-report/activiy-detail-report.module#ActiviyDetailReportPageModule', canActivate: [AuthGuard]},
+  { path: 'activiy-detail-photo/:activityId', loadChildren: './activiy-detail-photo/activiy-detail-photo.module#ActiviyDetailPhotoPageModule' , canActivate: [AuthGuard]},
+
+
 ];
 
 @NgModule({

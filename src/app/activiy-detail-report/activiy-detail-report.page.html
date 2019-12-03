@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+        <ion-back-button mode="md" defaultHref="/" icon="assets/icon/icon-back.svg"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Report</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-card>
+        <div style="position:relative !important; ">
+          <img [src]="image">
+          
+        </div>
+        <ion-card-content>
+          <p>{{report}}</p>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

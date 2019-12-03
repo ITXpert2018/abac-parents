@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>\r\n      Ionic Blank\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"ion-padding\">\r\n    The world is your oyster.\r\n    <p>If you get lost, the <a target=\"_blank\" rel=\"noopener\" href=\"https://ionicframework.com/docs/\">docs</a> will be your guide.</p>\r\n  </div>\r\n</ion-content> -->\r\n<ion-header no-border>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo.png\" id=\"header_logo\" height=\"40\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content class=\"ion-padding\">\r\n  <ion-item lines=\"none\" class=\"form-control-label\">\r\n    <ion-label>What is your <span>Email</span>?</ion-label>\r\n  </ion-item>\r\n  <ion-item lines=\"none\" class=\"input_box\">\r\n    <ion-label>\r\n      <ion-icon src=\"assets/icon/icon-email.svg\"></ion-icon>\r\n    </ion-label>\r\n    <ion-input type=\"text\" value=\"\" [(ngModel)]=\"email\"></ion-input>\r\n  </ion-item>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-button expand=\"full\" class=\"button-green\" color=\"button_color\" (click)=\"checkEmail()\">NEXT</ion-button>\r\n</ion-footer>"
+module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>\r\n      Ionic Blank\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"ion-padding\">\r\n    The world is your oyster.\r\n    <p>If you get lost, the <a target=\"_blank\" rel=\"noopener\" href=\"https://ionicframework.com/docs/\">docs</a> will be your guide.</p>\r\n  </div>\r\n</ion-content> -->\r\n<ion-header no-border>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo.png\" id=\"header_logo\" height=\"40\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content class=\"ion-padding\">\r\n  <ion-item lines=\"none\" class=\"form-control-label\">\r\n    <ion-label>What is your <span>Email</span>?</ion-label>\r\n  </ion-item>\r\n  <ion-item lines=\"none\" class=\"input_box\">\r\n    <ion-label>\r\n      <ion-icon src=\"assets/icon/icon-email.svg\"></ion-icon>\r\n    </ion-label>\r\n    <ion-input type=\"text\" value=\"\" (keyup.enter)=\"checkEmail()\" [(ngModel)]=\"email\"></ion-input>\r\n  </ion-item>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-button expand=\"full\" class=\"button-green\" color=\"button_color\"\r\n   (click)=\"checkEmail()\">NEXT</ion-button>\r\n</ion-footer>"
 
 /***/ }),
 
@@ -123,7 +123,8 @@ var HomePage = /** @class */ (function () {
                     }
                     else {
                         //existing user logged in
-                        _this.router.navigate(['/details']);
+                        _this.router.navigate(['/tabs']);
+                        //              this.router.navigate(['/my-child']);
                     }
                 });
             }

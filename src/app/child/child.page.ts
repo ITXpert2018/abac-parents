@@ -4,6 +4,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Child } from 'src/interfaces';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import * as firebase from "firebase";
 
 @Component({
   selector: 'app-child',
@@ -22,17 +23,17 @@ export class ChildPage implements OnInit {
 
   ionViewWillEnter() {
 
-    //subscribe to places collection
-    this.db.collection('parents').doc(this.auth.getUid()).collection('childrens')
-      .snapshotChanges().subscribe(serverItems => {
-        this.childs = [];
-        serverItems.forEach(a => {
+    firebase.database().ref('/childrens/').once('value', (snapshot) => {
+      this.childs = [];
+      snapshot.forEach( snap => {
+        if(snap.val().parentId == this.auth.getUid()){
           this.hasChilds = true;
-          let child: Child = a.payload.doc.data();
-          child.id = a.payload.doc.id;
-          this.childs.push(child);
-        });
+          this.childs.push(snap.val());
+
+        }
+
       });
+    });    
     console.log('view will enter child Page');
   }
 

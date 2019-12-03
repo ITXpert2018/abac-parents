@@ -50,42 +50,32 @@ export class ChildModifyPage implements OnInit {
     this.child.aminesIntolerant = false;
     this.child.lactoseIntolerant = false;
     this.childId = this.route.snapshot.params['childId'];
-    this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(this.childId).valueChanges().subscribe(data => {
-      // console.log(data);
-      this.child = data;
-      if (this.child.otherFamilyContact == undefined) {
-        let otherFamilyContactObject = { fullName: '', email: '', phone: '' };
-        this.child.otherFamilyContact = otherFamilyContactObject;
-      }
 
-    });
-
+    firebase.database().ref('/childrens/').once('value', (snapshot) => {
+      snapshot.forEach( snap => {
+        if(snap.val().id == this.childId){
+          this.child = snap.val();
+          if (this.child.otherFamilyContact == undefined) {
+            let otherFamilyContactObject = { fullName: '', email: '', phone: '' };
+            this.child.otherFamilyContact = otherFamilyContactObject;
+          }          
+          return;
+        }
+      });
+    });  
 
 
     //find all schools
-    this.db.collection('schools').snapshotChanges().subscribe(
-      serverItems => {
-        this.schools = [];
 
-        serverItems.forEach(item => {
-          let school: School = item.payload.doc.data();
-          school.id = item.payload.doc.id;
-          console.log('this school', school);
-          this.schools.push(school);
+    firebase.database().ref('/schools/').once('value', (snapshot) => {
+      this.schools = [];
+      snapshot.forEach( snap => {
+        let school: School = snap.val();
+        school.id = snap.key;
+        this.schools.push(school);
 
-
-        });
-      }
-    );
-    // if (this.loadingService.isLoading) {
-    //   this.loadingService.dismiss();
-    // }
-    // console.log(this.schools);
-
-    // this.db.collection('places').doc(this.placeId).valueChanges().pipe(take(1))
-    //   .subscribe(data => {
-    //     this.currentPlace = data;
-    //   });
+      });
+    });      
 
   }
 
@@ -218,7 +208,9 @@ export class ChildModifyPage implements OnInit {
   childModify() {
     if (this.acceptedAgreement) {
       if (this.child.fullName != '' || this.child.fullName != undefined) {
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(this.childId).set(this.child, { merge: true });
+        firebase.database().ref('/childrens').child(this.childId).update(this.child);
+
+    //    this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(this.childId).set(this.child, { merge: true });
         this.router.navigate(['/my-child']);
       }
       else {

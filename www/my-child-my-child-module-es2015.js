@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>my-child</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content> -->\r\n<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo-icon.png\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content>\r\n  <div class=\"kids-section\">\r\n    <div class=\"container\">\r\n      <h2 class=\"grey-heading\">KIDS</h2>\r\n      <ion-slides>\r\n        <ion-slide *ngFor=\"let k of childs\">\r\n          <div class=\"kids-block\" (click)=\"childSelected(k)\">\r\n            <div class=\"kids-img\">\r\n              <img *ngIf=\"k.photoUrl\" src=\"k.photoUrl\" alt=\"\" title=\"\" />\r\n              <img *ngIf=\"!k.photoUrl\" src=\"/assets/imgs/child-demo.png\" alt=\"\" title=\"\" />\r\n            </div>\r\n            <p>{{k.fullName}}</p>\r\n          </div>\r\n        </ion-slide>\r\n        <ion-slide>\r\n          <div class=\"kids-block add-kid\" (click)=\"goToAddChild()\">\r\n            <div class=\"kids-img\">\r\n              <span class=\"plus-icon\">+</span>\r\n            </div>\r\n            <p>Add Kid </p>\r\n          </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div class=\"activity-section\">\r\n    <div class=\"container\">\r\n      <h2 class=\"grey-heading\">Activities</h2>\r\n      <!--<div class=\"activity-block\">\r\n        <div class=\"row d-flex align-items-center\">\r\n            <div class=\"col-md-3 col-sm-3 col-3 pr-2 text-center\">\r\n                <h3 class=\"time\">16:00</h3>\r\n            </div>\r\n            <div class=\"col-md-9 col-sm-9 col-9 pl-2\">\r\n                <h4 class=\"activity-name\">Social Science Exersice-2</h4>\r\n                <p class=\"activity-details\">Social Science Revision</p>\r\n                <p class=\"activity-school\">Detla School</p>\r\n                <p class=\"hours\">2 Hours</p>\r\n            </div>\r\n        </div>\r\n   </div>-->\r\n      <ion-list *ngFor=\"let activity of enrolledActivities\" class=\"activity-block\"\r\n        (click)=\"goToActivityDetails(activity)\">\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">{{momentjs(activity.start_date.toDate()).format('HH:mm')}}</h3>\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">{{activity.name}}</h4>\r\n                <p class=\"activity-details\">{{activity.description}}</p>\r\n                <p class=\"activity-school\">{{activity.schoolName}}</p>\r\n                <p class=\"enrolled-kid\"><span\r\n                    *ngFor=\"let childName of activity.childNames; let isLast=last\">{{childName}}\r\n                    {{isLast ? '' : '; '}}</span></p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">{{activity.duration_hrs}} Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list>\r\n\r\n\r\n      <!-- <ion-list class=\"activity-block\" (click)=\"goToActivityDetails()\">\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">16:00</h3>\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">Social Science Exersice-2</h4>\r\n                <p class=\"activity-details\">Social Science Revision</p>\r\n                <p class=\"activity-school\">Detla School</p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">2 Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list>\r\n\r\n      <ion-list class=\"activity-block\" (click)=\"goToActivityDetails()\">\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">16:00</h3>\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">Social Science Exersice-2</h4>\r\n                <p class=\"activity-details\">Social Science Revision</p>\r\n                <p class=\"activity-school\">Detla School</p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">2 Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list>\r\n\r\n      <ion-list class=\"activity-block\" (click)=\"goToActivityDetails()\">\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">16:00</h3>\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">Social Science Exersice-2</h4>\r\n                <p class=\"activity-details\">Social Science Revision</p>\r\n                <p class=\"activity-school\">Detla School</p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">2 Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list>\r\n\r\n      <ion-list class=\"activity-block\" (click)=\"goToActivityDetails()\">\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">16:00</h3>\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">Social Science Exersice-2</h4>\r\n                <p class=\"activity-details\">Social Science Revision</p>\r\n                <p class=\"activity-school\">Detla School</p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">2 Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list>\r\n\r\n      <ion-list class=\"activity-block\" (click)=\"goToActivityDetails()\">\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">16:00</h3>\r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">Social Science Exersice-2</h4>\r\n                <p class=\"activity-details\">Social Science Revision</p>\r\n                <p class=\"activity-school\">Detla School</p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">2 Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list> -->\r\n\r\n    </div>\r\n  </div>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-toolbar transparent>\r\n    <ion-grid>\r\n      <ion-row class=\"footer_tab\">\r\n        <ion-col class=\"active\">\r\n          <i class=\"footer-icon child-face\"></i>\r\n          <small> My Kids </small>\r\n        </ion-col>\r\n        <ion-col (click)=\"goToActivityList()\">\r\n          <i class=\"football footer-icon\"></i>\r\n          <small> Activity</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToConversation()\">\r\n          <i class=\"footer-message footer-icon\"></i>\r\n          <small> Chat</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToDetails()\">\r\n          <i class=\"icon-User footer-icon\"></i>\r\n          <small> Profile </small>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </ion-toolbar>\r\n</ion-footer>"
+module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>my-child</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content> -->\r\n<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo-icon.png\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content>\r\n  <div class=\"kids-section\">\r\n    <div class=\"container\">\r\n      <h2 class=\"grey-heading\">KIDS</h2>\r\n      <ion-slides>\r\n        <ion-slide *ngFor=\"let k of childs\">\r\n          <div class=\"kids-block\" (click)=\"childSelected(k)\">\r\n            <div class=\"kids-img\">\r\n              <img *ngIf=\"k.photoUrl\" [src]=\"k.photoUrl\" alt=\"\" title=\"\" />\r\n              <img *ngIf=\"!k.photoUrl\" src=\"/assets/imgs/child-demo.png\" alt=\"\" title=\"\" />\r\n            </div>\r\n            <p>{{k.fullName}}</p>\r\n          </div>\r\n        </ion-slide>\r\n        <ion-slide>\r\n          <div class=\"kids-block add-kid\" (click)=\"goToAddChild()\">\r\n            <div class=\"kids-img\">\r\n              <span class=\"plus-icon\">+</span>\r\n            </div>\r\n            <p>Add Kid </p>\r\n          </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div class=\"activity-section\">\r\n    <div class=\"container\">\r\n      <h2 class=\"grey-heading\">Activities</h2>\r\n\r\n      <ion-list *ngFor=\"let child of childs\" class=\"activity-block\"\r\n        (click)=\"goToActivityDetails(child.activitiesEnrolled[0])\">\r\n        <ion-grid *ngIf=\"child.activitiesEnrolled\" >\r\n          <ion-row *ngFor=\"let activity of child.activitiesEnrolled\">\r\n            <ion-col size=\"2\" class=\"text-center\">\r\n              <h3 class=\"time\">{{activity.detail.starttime}}</h3> \r\n            </ion-col>\r\n            <ion-col size=\"8\">\r\n              <div class=\"activity-container\">\r\n                <h4 class=\"activity-name\">{{activity.name}}</h4>\r\n                <p class=\"activity-details\">{{activity.description}}</p>\r\n                <p class=\"activity-school\">{{child.schoolName}}</p>\r\n                 <p class=\"enrolled-kid\"><span>{{child.fullName}}</span></p>\r\n              </div>\r\n\r\n            </ion-col>\r\n            <ion-col size=\"2\">\r\n              <p class=\"hours\">{{activity.detail.duration}} Hours</p>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-list>\r\n\r\n\r\n\r\n    </div>\r\n  </div>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-toolbar transparent>\r\n    <ion-grid>\r\n      <ion-row class=\"footer_tab\">\r\n        <ion-col class=\"active\">\r\n          <i class=\"footer-icon child-face\"></i>\r\n          <small> My Kids </small>\r\n        </ion-col>\r\n        <ion-col (click)=\"goToActivityList()\">\r\n          <i class=\"football footer-icon\"></i>\r\n          <small> Activity</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToConversation()\">\r\n          <i class=\"footer-message footer-icon\"></i>\r\n          <small> Chat</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToDetails()\">\r\n          <i class=\"icon-User footer-icon\"></i>\r\n          <small> Profile </small>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </ion-toolbar>\r\n</ion-footer>"
 
 /***/ }),
 
@@ -88,6 +88,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -107,47 +110,15 @@ let MyChildPage = class MyChildPage {
         this.enrolledActivities = [];
         // this.dataShare.refreshMyChilds();
         //subscribe to childrens collection
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens')
-            .snapshotChanges().subscribe(serverItems => {
+        firebase__WEBPACK_IMPORTED_MODULE_7__["database"]().ref('/childrens/').once('value', (snapshot) => {
             this.childs = [];
-            serverItems.forEach(a => {
-                //this.hasChilds = true;
-                let child = a.payload.doc.data();
-                // console.log(child);
-                child.id = a.payload.doc.id;
-                this.childs.push(child);
-                // this.dataShare.addChild(child);
-                if (child.activitiesEnrolled) {
-                    for (var i = 0; i < child.activitiesEnrolled.length; i++) {
-                        //check if activity already added
-                        var found = false;
-                        var index = 0;
-                        for (var j = 0; j < this.enrolledActivities.length; j++) {
-                            if (this.enrolledActivities[j].id == child.activitiesEnrolled[i].id) {
-                                found = true;
-                                index = j;
-                                break;
-                            }
-                        }
-                        if (!found) {
-                            let newChildActivity = child.activitiesEnrolled[i];
-                            newChildActivity.childNames = [];
-                            newChildActivity.childNames.push(child.fullName);
-                            this.enrolledActivities.push(newChildActivity);
-                        }
-                        else {
-                            //activity found add just the child name
-                            if (!this.enrolledActivities[index].childNames) {
-                                this.enrolledActivities[index].childNames = [];
-                            }
-                            this.enrolledActivities[index].childNames.push(child.fullName);
-                        }
-                    }
+            snapshot.forEach(snap => {
+                if (snap.val().parentId == this.auth.getUid()) {
+                    this.childs.push(snap.val());
+                    console.log(this.childs);
                 }
-                // this.enrolledActivities.push.apply(this.enrolledActivities, child.activitiesEnrolled);
             });
         });
-        // console.log('view will enter my child Page');
     }
     ngOnInit() {
     }
@@ -162,7 +133,7 @@ let MyChildPage = class MyChildPage {
         this.router.navigate(['/activity-details/' + activity.id]);
     }
     goToActivityList() {
-        this.router.navigate(['activity-list']);
+        this.router.navigate(['/activity-list']);
     }
     goToAddChild() {
         this.router.navigate(['/child-add/my-child']);

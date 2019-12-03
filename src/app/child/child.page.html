@@ -15,8 +15,9 @@
   <ion-grid *ngFor="let child of childs" class="child-profile">
     <ion-row>
       <ion-col col-3>
+        <ion-avatar slot="start">
         <img [src]="child.photoUrl" alt="" title="" />
-
+         </ion-avatar> 
       </ion-col>
       <ion-col col-9 class="child_name">
         <h3>{{child.fullName}}</h3>

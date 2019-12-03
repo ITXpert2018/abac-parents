@@ -11,6 +11,7 @@ import * as firebase from "firebase";
 import { AlertMessageService } from '../services/alert-message.service';
 import { LoadingService } from '../services/loading.service';
 import { Router } from '@angular/router';
+import {AngularFireDatabase} from "@angular/fire/database";
 
 
 @Component({
@@ -20,6 +21,7 @@ import { Router } from '@angular/router';
 })
 export class DetailsPage implements OnInit {
   public parent: User = {};
+  public parentAutokey: any;
   public urlToImage: string = "";
   constructor(
     private auth: AuthenticationService,
@@ -29,6 +31,8 @@ export class DetailsPage implements OnInit {
     public alert: AlertMessageService,
     public loadingService: LoadingService,
     public router: Router,
+    public afDatabase: AngularFireDatabase
+
 
   ) { }
 
@@ -39,20 +43,35 @@ export class DetailsPage implements OnInit {
     //get info of current parent from firebase
     //this.urlToImage = "../../assets/imgs/kids-1.png";
 
-    this.db.collection('parents').doc(this.auth.getUid()).valueChanges().subscribe(data => {
-      //console.log(data);
-      this.parent = data;
-      //console.log(this.parent.photoUrl);
-      if (this.parent.photoUrl == '' || this.parent.photoUrl == undefined) {
-        this.parent.photoUrl = this.urlToImage;
-      }
-    });
+    firebase.database().ref('/parents/').once('value', (snapshot) => {
+      snapshot.forEach( snap => {
+        if(snap.val().uid == this.auth.getUid()){
+          this.parent = snap.val();
+          this.parentAutokey = snap.key;
+          if (this.parent.photoUrl == '' || this.parent.photoUrl == undefined) {
+            this.parent.photoUrl = this.urlToImage;
+          }
+          return;
+        }
+      });
+    });    
+    
+    // this.db.collection('parents').doc(this.auth.getUid()).valueChanges().subscribe(data => {
+    //   //console.log(data);
+    //   this.parent = data;
+    //   //console.log(this.parent.photoUrl);
+    //   if (this.parent.photoUrl == '' || this.parent.photoUrl == undefined) {
+    //     this.parent.photoUrl = this.urlToImage;
+    //   }
+    // });
 
 
   }
 
   onBlurParentData() {
-    this.db.collection('parents').doc(this.auth.getUid()).update(this.parent);
+    console.log("this.paremt", this.parent);
+    firebase.database().ref('/parents').child(this.parentAutokey).update(this.parent);
+    //this.db.collection('parents').doc(this.auth.getUid()).update(this.parent);
   }
 
   async uploadPhoto() {

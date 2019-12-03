@@ -7,8 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingService } from '../services/loading.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from "@ionic-native/file/ngx";
+
 //FIREBASE
 import * as firebase from "firebase";
+import {AngularFireDatabase} from "@angular/fire/database";
+
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 @Component({
   selector: 'app-child-add',
@@ -27,6 +30,7 @@ export class ChildAddPage implements OnInit {
     private alert: AlertMessageService,
     private db: AngularFirestore,
     private auth: AuthenticationService,
+    public afDatabase: AngularFireDatabase,
     private router: Router,
     private camera: Camera,
     private file: File,
@@ -55,21 +59,24 @@ export class ChildAddPage implements OnInit {
     let otherFamilyContactObject = { fullName: '', email: '', phone: '' };
     this.child.otherFamilyContact = otherFamilyContactObject;
     this.returnUrl = this.route.snapshot.params['returnUrl'];
-    //find all schools
-    this.db.collection('schools').snapshotChanges().subscribe(
-      serverItems => {
-        this.schools = [];
 
-        serverItems.forEach(item => {
-          let school: School = item.payload.doc.data();
-          school.id = item.payload.doc.id;
-          console.log('this school', school);
-          this.schools.push(school);
+    let school = {
+      id: "",
+      name:""
+    };
 
-
-        });
-      }
-    );
+    firebase.database().ref('/schools/').once('value', (snapshot) => {
+      this.schools = [];
+      snapshot.forEach( snap => {
+        console.log("snapshot", snap.val());
+           school.id = snap.key;
+           school.name = snap.val().name;
+           console.log("schoool", school);
+           this.schools.push(school);
+      });
+    });
+         
+    
   }
 
   glutenSwitch() {
@@ -119,6 +126,7 @@ export class ChildAddPage implements OnInit {
       let blobInfo = await this.makeFileIntoBlob(cameraInfo);
       let downloadUrl: any = await this.uploadToFirebase(blobInfo);
       console.log(downloadUrl);
+      alert(downloadUrl);
       this.child.photoUrl = downloadUrl;
       //this.onBlurParentData();
       if (this.loadingService.isLoading)
@@ -201,8 +209,14 @@ export class ChildAddPage implements OnInit {
   childAdd() {
     if (this.acceptedAgreement) {
       if (this.child.fullName != '' || this.child.fullName != undefined) {
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').add(this.child);
-        this.router.navigate([this.returnUrl]);
+        
+        //this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').add(this.child);
+        this.child.parentId = this.auth.getUid();
+        let key = this.afDatabase.list("childrens").push(this.child).key;
+        this.child.id = key;
+
+        firebase.database().ref('/childrens/').child(key).update(this.child);
+         this.router.navigate([this.returnUrl]);
       }
       else {
         this.alert.customMessage('Please insert your child\'s name!');

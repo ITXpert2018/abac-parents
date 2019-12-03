@@ -22,15 +22,15 @@
 
     <ion-item *ngFor="let child of childrens" (click)="childSelected(child)">
       <ion-avatar slot="start">
-        <img *ngIf="child.photoUrl" src="child.photoUrl">
+        <img *ngIf="child.photoUrl" [src]="child.photoUrl">
         <img *ngIf="!child.photoUrl" src="/assets/imgs/child-demo.png">
       </ion-avatar>
       <ion-label>
         <h2>{{child.fullName}}</h2>
         <h3>Already signed up in: </h3>
         <p *ngIf="child.activitiesEnrolled"><span
-            *ngFor="let activity of child.activitiesEnrolled; let isLast=last">{{activity.name}} -
-            {{activity.schoolName}} {{isLast ? '' : '; '}} </span></p>
+            *ngFor="let activity of child.activitiesEnrolled; let isLast=last">{{activity.name}} 
+            {{isLast ? '' : '; '}}&nbsp; </span></p>
         <p *ngIf="!child.activitiesEnrolled">No activities</p>
       </ion-label>
     </ion-item>

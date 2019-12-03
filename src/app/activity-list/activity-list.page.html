@@ -17,14 +17,16 @@
 
 
 <ion-content>
+
   <div *ngFor="let category of categories" class="activity-list list"
     [style.backgroundImage]="'url(' + category.image + ')'" (click)="goToActivityCategory(category)">
     <div class="overlay"></div>
     <div class="activity-content">
       <h3>{{category.name}}</h3>
-      <p>{{category.activities.length}} Activities</p>
+     <!-- <p>{{category.activities.length}} Activities</p>  -->
     </div>
-  </div>
+  </div> 
+
 </ion-content>
 
 <ion-footer no-border>

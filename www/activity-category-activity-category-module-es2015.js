@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>{{currentCategory.name}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- <ion-list class=\"category-block\">\r\n    <h2>Football</h2>\r\n    <p>Lorem ipsum dolor sit amet, consectetur ading elit, sed do eiusmod tempor incididunt utsam labore et dolore magna\r\n      aliqua. Ut enim</p>\r\n\r\n    <button ion-button clear class=\"btn btn-outline-default\" (click)=\"thankyouOrder()\">SIGN UP</button>\r\n  </ion-list> -->\r\n  <ion-card *ngFor=\"let activity of activities\">\r\n    <div style=\"position:relative !important; \">\r\n      <img [src]=\"activity.image\">\r\n      <ion-button mode=\"ios\" class=\"sign-up-btn\" (click)=\"enrollToActivity(activity)\">SIGN UP\r\n      </ion-button>\r\n    </div>\r\n    <ion-card-header>\r\n      <ion-card-title>{{activity.name}}</ion-card-title>\r\n      <ion-card-subtitle>{{activity.schoolName}}</ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      {{activity.description}}\r\n      <p class=\"activity_details\">\r\n        <span>{{activity.price}}&nbsp;&#8364;</span>\r\n        <span style='margin-left: 15px;'>\r\n          <ion-icon src=\"/assets/icon/icon-date.svg\"></ion-icon>\r\n          &nbsp;\r\n          {{activity.start_date.toDate() | date: 'dd MMM'}} - {{activity.end_date.toDate() | date: 'dd MMM'}}\r\n        </span>\r\n        <span style='margin-left: 10px'>\r\n          <ion-icon mode=\"md\" name=\"time\"></ion-icon>\r\n          {{activity.duration_hrs}} hrs\r\n        </span>\r\n      </p>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>\r\n<!-- &#8364; -->"
+module.exports = "<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>{{currentCategory}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <!-- <ion-list class=\"category-block\">\r\n    <h2>Football</h2>\r\n    <p>Lorem ipsum dolor sit amet, consectetur ading elit, sed do eiusmod tempor incididunt utsam labore et dolore magna\r\n      aliqua. Ut enim</p>\r\n\r\n    <button ion-button clear class=\"btn btn-outline-default\" (click)=\"thankyouOrder()\">SIGN UP</button>\r\n  </ion-list> -->\r\n  <ion-card *ngFor=\"let activity of activities\">\r\n    <div style=\"position:relative !important; \">\r\n      <img [src]=\"activity.image\">\r\n      <ion-button mode=\"ios\" class=\"sign-up-btn\" (click)=\"enrollToActivity(activity)\">SIGN UP\r\n      </ion-button>\r\n    </div>\r\n    <ion-card-header>\r\n      <ion-card-title>{{activity.name}}</ion-card-title>\r\n      <!-- <ion-card-subtitle>{{activity.schoolId}}</ion-card-subtitle> -->\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      {{activity.description}}\r\n      <p class=\"activity_details\">\r\n        <span>{{activity.price}}&nbsp;&#8364;</span>\r\n        <span style='margin-left: 15px;'>\r\n          <ion-icon src=\"/assets/icon/icon-date.svg\"></ion-icon>\r\n          &nbsp;\r\n          <!-- {{activity.start_date.toDate() | date: 'dd MMM'}} - {{activity.end_date.toDate() | date: 'dd MMM'}} -->\r\n          {{activity.start_date}} - {{activity.end_date}} \r\n\r\n        </span>\r\n        <span style='margin-left: 10px'>\r\n          <ion-icon mode=\"md\" name=\"time\"></ion-icon>\r\n          {{activity.duration_hrs}} hrs\r\n        </span>\r\n      </p>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>\r\n<!-- &#8364; -->"
 
 /***/ }),
 
@@ -89,9 +89,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _services_data_share_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/data-share.service */ "./src/app/services/data-share.service.ts");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/es2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
-/* harmony import */ var _child_selector_child_selector_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../child-selector/child-selector.page */ "./src/app/child-selector/child-selector.page.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _child_selector_child_selector_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../child-selector/child-selector.page */ "./src/app/child-selector/child-selector.page.ts");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _services_alert_message_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/alert-message.service */ "./src/app/services/alert-message.service.ts");
+
+
 
 
 
@@ -104,8 +108,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ActivityCategoryPage = class ActivityCategoryPage {
-    constructor(route, modalCtrl, dataShare, db, auth) {
+    constructor(alert, route, router, modalCtrl, dataShare, db, auth) {
+        this.alert = alert;
         this.route = route;
+        this.router = router;
         this.modalCtrl = modalCtrl;
         this.dataShare = dataShare;
         this.db = db;
@@ -119,66 +125,44 @@ let ActivityCategoryPage = class ActivityCategoryPage {
     ionViewWillEnter() {
         //read category name
         this.categoryId = this.route.snapshot.params['categoryId'];
-        //category name is also attribute of activity. it will depend school by school.
-        // var newActivity: Activity = {};
-        // // newActivity.categoryName = 'Esportives';
-        // newActivity.name = 'Football';
-        // newActivity.description = 'Lorem ipsum dolor sit amet, consectetur ading elit, sed do eiusmod tempor incididunt utsam labore et dolore magna aliqua';
-        // newActivity.image = "/assets/imgs/football.jpg";
-        // // newActivity.image = "https://www.telegraph.co.uk/content/dam/football/2019/08/15/TELEMMGLPICT000206110274_trans_NvBQzQNjv4BqrS8Z1b0ZQjNoViJZ3HnGQ4NS1YurETCFkeLSh1IwB7c.jpeg?imwidth=450";
-        // newActivity.price = 2.5;
-        // newActivity.start_date = new Date(2019, 8, 26);
-        // newActivity.end_date = new Date(2019, 8, 30);
-        // newActivity.duration_hrs = 3;
-        // this.activities.push(newActivity);
-        this.myChildsSchoolIds = [];
-        this.myChildren = [];
-        // this.dataShare.getMyChilds().forEach(child => {
-        //   this.myChildsSchoolIds.push(child.schoolId);
-        // });
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').snapshotChanges().subscribe(serverItems => {
-            serverItems.forEach(item => {
-                // console.log('browsing children of this parent, got this child: ', item);
-                let child = item.payload.doc.data();
-                child.id = item.payload.doc.id;
-                this.myChildsSchoolIds.push(child.schoolId);
-                this.myChildren.push(child);
+        firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref('/childrens/').once('value', (snapshot) => {
+            this.myChildren = [];
+            snapshot.forEach(snap => {
+                if (snap.val().parentId == this.auth.getUid())
+                    this.myChildren.push(snap.val());
             });
         });
-        this.db.collection('categories').doc(this.categoryId).valueChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1))
-            .subscribe(data => {
-            this.currentCategory = data;
+        firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref('/categories/').once('value', (snapshot) => {
+            snapshot.forEach(snap => {
+                if (snap.key == this.categoryId) {
+                    this.currentCategory = snap.val().name;
+                    return;
+                }
+            });
         });
-        // this.db.collection('categories').doc(this.categoryId).collection('activities').snapshotChanges().pipe(take(1)).subscribe(serverItems => {
-        //   serverItems.forEach(a => {
-        //     //this.hasChilds = true;
-        //     let activity: Activity = a.payload.doc.data();
-        //     activity.id = a.payload.doc.id;
-        //     // console.log(category);
-        //     if (this.myChildsSchoolIds.includes(activity.schoolId))
-        //       this.activities.push(activity);
-        //   });
-        // }, error => { console.log(error) }
-        //   , () => {
-        //     //finished
-        //     //subscription complete.
-        //   });
-        this.db.collection('activities', q => q.where('categoryId', '==', this.categoryId)).snapshotChanges().subscribe(serverItems => {
-            serverItems.forEach(a => {
-                let activity = a.payload.doc.data();
-                activity.id = a.payload.doc.id;
-                // console.log(category);
-                if (this.myChildsSchoolIds.includes(activity.schoolId))
-                    this.activities.push(activity);
+        firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref('/childrens/').once('value', (snapshot) => {
+            this.myChildsSchoolIds = [];
+            snapshot.forEach(snap => {
+                if (snap.val().parentId == this.auth.getUid()) {
+                    this.myChildsSchoolIds.push(snap.val().schoolId);
+                }
+                console.log("this.myChildsSchoolIds", this.myChildsSchoolIds);
+            });
+        });
+        firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref('/activities/').once('value', (snapshot) => {
+            this.activities = [];
+            snapshot.forEach(snap => {
+                if (snap.val().categoryId == this.categoryId) {
+                    if (this.myChildsSchoolIds.includes(snap.val().schoolId))
+                        this.activities.push(snap.val());
+                }
             });
         });
     }
     enrollToActivityStoreFirebase(child, activity) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            console.log("aaaaaaaaaaa", activity);
-            this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').doc(child.id).set({
-                activitiesEnrolled: child.activitiesEnrolled
-            }, { merge: true });
+            console.log(child);
+            firebase__WEBPACK_IMPORTED_MODULE_10__["database"]().ref('/childrens').child(child.id).update(child);
             const modal = yield this.modalCtrl.create({
                 component: _thankyou_order_thankyou_order_page__WEBPACK_IMPORTED_MODULE_4__["ThankyouOrderPage"],
                 componentProps: {
@@ -190,7 +174,6 @@ let ActivityCategoryPage = class ActivityCategoryPage {
     }
     enrollToActivity(activity) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            console.log("aaaaaaaaaaaaaa", activity);
             if (this.myChildren.length > 0) {
                 //check if have more than one child on this activity school.
                 // activity.schoolId
@@ -203,11 +186,11 @@ let ActivityCategoryPage = class ActivityCategoryPage {
                     }
                 });
                 var shouldUpdateToFirebase = false;
-                console.log("childsOnThisSchool.length", childsOnThisSchool.length);
+                console.log("this.myChildren", childsOnThisSchool);
                 if (childsOnThisSchool.length > 0) {
                     //TO DO select one of the kids
                     const modal = yield this.modalCtrl.create({
-                        component: _child_selector_child_selector_page__WEBPACK_IMPORTED_MODULE_10__["ChildSelectorPage"],
+                        component: _child_selector_child_selector_page__WEBPACK_IMPORTED_MODULE_9__["ChildSelectorPage"],
                         componentProps: {
                             activity: activity
                         },
@@ -215,7 +198,6 @@ let ActivityCategoryPage = class ActivityCategoryPage {
                     modal.onDidDismiss()
                         .then((data) => {
                         const returnData = data['data'];
-                        // console.log(returnData);
                         if (returnData != 'cancel') {
                             let childReturned;
                             let shouldUpdatToFirebase2 = false;
@@ -243,6 +225,8 @@ let ActivityCategoryPage = class ActivityCategoryPage {
                                 else {
                                     shouldUpdatToFirebase2 = false;
                                     console.log('child already enrolled to this activity.', childReturned.activitiesEnrolled);
+                                    this.alert.customMessage("Already sign up activity.");
+                                    // this.router.navigate(['/activity-details/' + activity.id]);
                                 }
                             }
                             if (shouldUpdatToFirebase2) {
@@ -303,11 +287,13 @@ let ActivityCategoryPage = class ActivityCategoryPage {
     }
 };
 ActivityCategoryPage.ctorParameters = () => [
+    { type: _services_alert_message_service__WEBPACK_IMPORTED_MODULE_11__["AlertMessageService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"] },
     { type: _services_data_share_service__WEBPACK_IMPORTED_MODULE_6__["DataShareService"] },
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"] },
-    { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"] }
+    { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"] }
 ];
 ActivityCategoryPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -315,11 +301,13 @@ ActivityCategoryPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./activity-category.page.html */ "./node_modules/raw-loader/index.js!./src/app/activity-category/activity-category.page.html"),
         styles: [__webpack_require__(/*! ./activity-category.page.scss */ "./src/app/activity-category/activity-category.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_alert_message_service__WEBPACK_IMPORTED_MODULE_11__["AlertMessageService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"],
         _services_data_share_service__WEBPACK_IMPORTED_MODULE_6__["DataShareService"],
         _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"],
-        _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"]])
+        _services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"]])
 ], ActivityCategoryPage);
 
 

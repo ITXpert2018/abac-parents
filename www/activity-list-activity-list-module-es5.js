@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>activity-list</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content> -->\r\n<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo-icon.png\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content>\r\n  <div *ngFor=\"let category of categories\" class=\"activity-list list\"\r\n    [style.backgroundImage]=\"'url(' + category.image + ')'\" (click)=\"goToActivityCategory(category)\">\r\n    <div class=\"overlay\"></div>\r\n    <div class=\"activity-content\">\r\n      <h3>{{category.name}}</h3>\r\n      <p>{{category.activities.length}} Activities</p>\r\n    </div>\r\n  </div>\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-toolbar transparent>\r\n    <ion-grid>\r\n      <ion-row class=\"footer_tab\">\r\n        <ion-col class=\"\" (click)=\"goToMyChild()\">\r\n          <i class=\"footer-icon child-face\"></i>\r\n          <small> My Kids </small>\r\n        </ion-col>\r\n        <ion-col class=\"active\">\r\n          <i class=\"football footer-icon\"></i>\r\n          <small> Activity</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToConversation()\">\r\n          <i class=\"footer-message footer-icon\"></i>\r\n          <small> Chat</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToDetails()\">\r\n          <i class=\"icon-User footer-icon\"></i>\r\n          <small> Profile </small>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </ion-toolbar>\r\n</ion-footer>"
+module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>activity-list</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content> -->\r\n<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo-icon.png\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content>\r\n\r\n  <div *ngFor=\"let category of categories\" class=\"activity-list list\"\r\n    [style.backgroundImage]=\"'url(' + category.image + ')'\" (click)=\"goToActivityCategory(category)\">\r\n    <div class=\"overlay\"></div>\r\n    <div class=\"activity-content\">\r\n      <h3>{{category.name}}</h3>\r\n     <!-- <p>{{category.activities.length}} Activities</p>  -->\r\n    </div>\r\n  </div> \r\n\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-toolbar transparent>\r\n    <ion-grid>\r\n      <ion-row class=\"footer_tab\">\r\n        <ion-col class=\"\" (click)=\"goToMyChild()\">\r\n          <i class=\"footer-icon child-face\"></i>\r\n          <small> My Kids </small>\r\n        </ion-col>\r\n        <ion-col class=\"active\">\r\n          <i class=\"football footer-icon\"></i>\r\n          <small> Activity</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToConversation()\">\r\n          <i class=\"footer-message footer-icon\"></i>\r\n          <small> Chat</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToDetails()\">\r\n          <i class=\"icon-User footer-icon\"></i>\r\n          <small> Profile </small>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </ion-toolbar>\r\n</ion-footer>"
 
 /***/ }),
 
@@ -88,9 +88,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_alert_message_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/alert-message.service */ "./src/app/services/alert-message.service.ts");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_alert_message_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/alert-message.service */ "./src/app/services/alert-message.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -106,80 +107,41 @@ var ActivityListPage = /** @class */ (function () {
         this.db = db;
         this.alert = alert;
         this.auth = auth;
+        this.imageServerUrl = "http://abacadmin.herokuapp.com/assets/images/";
     }
     ActivityListPage.prototype.ngOnInit = function () {
     };
     ActivityListPage.prototype.ionViewWillEnter = function () {
         var _this = this;
-        //console.log(this.dataShare.getMyChilds());
-        this.myChildsSchoolIds = [];
-        this.db.collection('parents').doc(this.auth.getUid()).collection('childrens').snapshotChanges().subscribe(function (serverItems) {
-            serverItems.forEach(function (item) {
-                // console.log('browsing children of this parent, got this child: ', item);
-                var child = item.payload.doc.data();
-                child.id = item.payload.doc.id;
-                _this.myChildsSchoolIds.push(child.schoolId);
-                // this.myChildren.push(child);
+        firebase__WEBPACK_IMPORTED_MODULE_7__["database"]().ref('/categories/').once('value', function (snapshot) {
+            _this.categories = [];
+            snapshot.forEach(function (snap) {
+                _this.categories.push(snap.val());
             });
-        });
-        //find all activities
-        this.allActivities = [];
-        this.db.collection('activities').snapshotChanges().subscribe(function (serverItems) {
-            serverItems.forEach(function (a) {
-                var activity = a.payload.doc.data();
-                activity.id = a.payload.doc.id;
-                _this.allActivities.push(activity);
-            });
-        });
-        //find all categories
-        this.categories = [];
-        //subscribe to categories
-        this.db.collection('categories', function (q) { return q.orderBy('name', 'asc'); }).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["take"])(1)).subscribe(function (serverItems) {
-            serverItems.forEach(function (a) {
-                //this.hasChilds = true;
-                var category = a.payload.doc.data();
-                category.id = a.payload.doc.id;
-                category.activities = [];
-                // console.log(category);
-                _this.categories.push(category);
-            });
-        }, function (error) { console.log(error); }, function () {
-            //finished
-            //got all categories.
-            //get activity for category.
-            _this.categories.forEach(function (category) {
-                // this.db.collection('categories').doc(element.id).collection('activities').snapshotChanges().pipe(take(1)).subscribe(serverItems => {
-                //   serverItems.forEach(activityItem => {
-                //     // console.log(item.payload.doc.id);
-                //     let activity: Activity = activityItem.payload.doc.data();
-                //     activity.id = activityItem.payload.doc.id;
-                //     //check if this activity is offered by my childrens schools
-                //     if (this.myChildsSchoolIds.includes(activity.schoolId))
-                //       element.activities.push(activity);
-                //   }
-                //   )
-                // },
-                //   error => { console.log(error) },
-                //   () => {
-                //     //on complete subscription
-                //     // console.log('subscription complete for activities for category ', element);
-                //   });
-                _this.allActivities.forEach(function (activity) {
-                    if (activity.categoryId == category.id) {
-                        category.activities.push(activity);
-                    }
-                });
-            });
-            // console.log(this.categories);
         });
     };
     ActivityListPage.prototype.goToActivityCategory = function (category) {
-        if (category.activities.length > 0) {
-            this.router.navigate(['/activity-category/' + category.id]);
-        }
-        else {
-            this.alert.customMessage(category.name + ' has no activities!');
-        }
+        var _this = this;
+        console.log("category", category);
+        var categoryId;
+        // if (category.activities.length > 0) {
+        firebase__WEBPACK_IMPORTED_MODULE_7__["database"]().ref('/categories/').once('value', function (snapshot) {
+            _this.categories = [];
+            snapshot.forEach(function (snap) {
+                console.log("category", category);
+                console.log("snap.val().name", snap.val().name);
+                if (snap.val().name == category.name) {
+                    categoryId = snap.key;
+                    console.log("categoryId", categoryId);
+                    _this.router.navigate(['/activity-category/' + categoryId]);
+                }
+            });
+        });
+        //   this.router.navigate(['/activity-category/' + categoryId]);
+        // }
+        // else {
+        //   this.alert.customMessage(category.name + ' has no activities!');
+        // }
     };
     ActivityListPage.prototype.goToDetails = function () {
         this.router.navigate(['/details']);
@@ -194,8 +156,8 @@ var ActivityListPage = /** @class */ (function () {
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
         { type: _services_data_share_service__WEBPACK_IMPORTED_MODULE_1__["DataShareService"] },
         { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"] },
-        { type: _services_alert_message_service__WEBPACK_IMPORTED_MODULE_6__["AlertMessageService"] },
-        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"] }
+        { type: _services_alert_message_service__WEBPACK_IMPORTED_MODULE_5__["AlertMessageService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"] }
     ]; };
     ActivityListPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -206,8 +168,8 @@ var ActivityListPage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _services_data_share_service__WEBPACK_IMPORTED_MODULE_1__["DataShareService"],
             _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"],
-            _services_alert_message_service__WEBPACK_IMPORTED_MODULE_6__["AlertMessageService"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"]])
+            _services_alert_message_service__WEBPACK_IMPORTED_MODULE_5__["AlertMessageService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]])
     ], ActivityListPage);
     return ActivityListPage;
 }());

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>{{title}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content *ngIf=\"currentActivity\">\r\n  <div class=\"top-banner\" [style.backgroundImage]=\"'url(' + currentActivity.image + ')'\">\r\n    <div class=\"overlay\"></div>\r\n    <div class=\"banner-content\">\r\n      <h2>{{currentActivity?.name}}</h2>\r\n      <p>\r\n        {{currentActivity.start_date?.toDate() | date: 'dd-MM-yyyy'}}\r\n        to\r\n        {{currentActivity.end_date?.toDate() | date: 'dd-MM-yyyy'}}</p>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div *ngIf=\"currentActivity?.isMeal\" class=\"activity-detail justify-content-end activity5\" (click)=\"openTodaysMenu()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Today's Menu</a>\r\n  </div>\r\n  <div class=\"activity-detail activity4\" (click)=\"goToConversation()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Communications</a>\r\n  </div>\r\n  <div *ngIf=\"!currentActivity?.isMeal\" class=\"activity-detail justify-content-end activity3\" (click)=\"goToGallery()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Photos</a>\r\n  </div>\r\n  <div *ngIf=\"!currentActivity?.isMeal\" class=\"activity-detail activity2\" (click)=\"goToReports()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Reports</a>\r\n  </div>\r\n  <div class=\"activity-detail  justify-content-end activity1\" (click)=\"goToConfiguration()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Configuration</a>\r\n  </div>\r\n</ion-content>"
+module.exports = "<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button mode=\"md\" defaultHref=\"/\" icon=\"assets/icon/icon-back.svg\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>{{title}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content *ngIf=\"currentActivity\">\r\n  <div class=\"top-banner\" [style.backgroundImage]=\"'url(' + currentActivity.image + ')'\">\r\n    <div class=\"overlay\"></div>\r\n    <div class=\"banner-content\">\r\n      <h2>{{currentActivity?.name}}</h2>\r\n      <p>\r\n        {{currentActivity.start_date}}\r\n        to\r\n        {{currentActivity.end_date}}</p>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div *ngIf=\"currentActivity.isMeal == 'true'\" class=\"activity-detail justify-content-end activity5\" (click)=\"openTodaysMenu()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Today's Menu</a>\r\n  </div>\r\n  <div class=\"activity-detail activity4\" (click)=\"goToConversation()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Communications</a>\r\n  </div>\r\n  <div *ngIf=\"currentActivity.isMeal == 'false'\" class=\"activity-detail justify-content-end activity3\" (click)=\"goToGallery()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Photos</a>\r\n  </div>\r\n  <div *ngIf=\"currentActivity?.isMeal == 'false'\" class=\"activity-detail activity2\" (click)=\"goToReports()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Reports</a>\r\n  </div>\r\n  <div class=\"activity-detail  justify-content-end activity1\" (click)=\"goToConfiguration()\">\r\n    <div class=\"overlay\"></div>\r\n    <a>Configuration</a>\r\n  </div>\r\n</ion-content>"
 
 /***/ }),
 
@@ -84,8 +84,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/es2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _services_alert_message_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/alert-message.service */ "./src/app/services/alert-message.service.ts");
+/* harmony import */ var _services_alert_message_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/alert-message.service */ "./src/app/services/alert-message.service.ts");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -99,6 +100,7 @@ let ActivityDetailsPage = class ActivityDetailsPage {
         this.router = router;
         this.alert = alert;
         this.currentActivity = {};
+        this.activities = [];
     }
     ngOnInit() {
     }
@@ -107,16 +109,21 @@ let ActivityDetailsPage = class ActivityDetailsPage {
         this.title = '';
         this.activityId = this.route.snapshot.params['activityId'];
         // console.log('activityId ', this.activityId);
-        this.db.collection('activities').doc(this.activityId).valueChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1))
-            .subscribe(data => {
-            this.currentActivity = data;
-            if (this.currentActivity.isMeal) {
-                this.title = 'Meal Details';
-            }
-            else {
-                this.title = 'Activity Details';
-            }
-            // console.log('current activity ', this.currentActivity);
+        firebase__WEBPACK_IMPORTED_MODULE_5__["database"]().ref('/activities/').once('value', (snapshot) => {
+            this.activities = [];
+            snapshot.forEach(snap => {
+                if (snap.val().id == this.activityId) {
+                    this.currentActivity = snap.val();
+                    if (this.currentActivity.isMeal == true) {
+                        this.title = 'Meal Details';
+                    }
+                    else {
+                        this.title = 'Activity Details';
+                    }
+                    console.log(this.currentActivity);
+                    return;
+                }
+            });
         });
     }
     goToConversation() {
@@ -126,10 +133,10 @@ let ActivityDetailsPage = class ActivityDetailsPage {
         this.alert.customMessage('Not yet implemented!');
     }
     goToGallery() {
-        this.alert.customMessage('Not yet implemented!');
+        this.router.navigate(['/activiy-detail-photo/' + this.activityId]);
     }
     goToReports() {
-        this.alert.customMessage('Not yet implemented!');
+        this.router.navigate(['/activiy-detail-report/' + this.activityId]);
     }
     goToConfiguration() {
         this.alert.customMessage('Not yet implemented!');
@@ -139,7 +146,7 @@ ActivityDetailsPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _services_alert_message_service__WEBPACK_IMPORTED_MODULE_5__["AlertMessageService"] }
+    { type: _services_alert_message_service__WEBPACK_IMPORTED_MODULE_4__["AlertMessageService"] }
 ];
 ActivityDetailsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -150,7 +157,7 @@ ActivityDetailsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _services_alert_message_service__WEBPACK_IMPORTED_MODULE_5__["AlertMessageService"]])
+        _services_alert_message_service__WEBPACK_IMPORTED_MODULE_4__["AlertMessageService"]])
 ], ActivityDetailsPage);
 
 

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>details</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content> -->\r\n<!--\r\n  Generated template for the DetailsPage page.\r\n\r\n  See http://ionicframework.com/docs/components/#navigation for more info on\r\n  Ionic pages and navigation.\r\n-->\r\n<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo-icon.png\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid class=\"back_all\">\r\n    <ion-row>\r\n      <ion-col>\r\n        <div class=\"upload-plus\" [style.backgroundImage]=\"'url('+parent.photoUrl+')'\">\r\n          <i class=\"camera-icon\" (click)=\"uploadPhoto()\"></i>\r\n        </div>\r\n        <p class=\"upload-label\">Upload Photo</p>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label>Full Name</ion-label>\r\n        </ion-item>\r\n        <ion-item lines=\"none\" class=\"input_box\">\r\n          <ion-label>\r\n            <ion-icon src=\"assets/icon/icon-name.svg\"></ion-icon>\r\n          </ion-label>\r\n          <ion-input type=\"text\" value=\"\" placeholder=\"John Smith\" [(ngModel)]=\"parent.fullName\"\r\n            (ionBlur)=\"onBlurParentData()\">\r\n          </ion-input>\r\n        </ion-item>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label>Phone number</ion-label>\r\n        </ion-item>\r\n        <ion-item lines=\"none\" class=\"input_box\">\r\n          <ion-label>\r\n            <ion-icon src=\"assets/icon/icon-phone.svg\"></ion-icon>\r\n          </ion-label>\r\n          <ion-input type=\"text\" value=\"\" placeholder=\"+000 0000 000\" [(ngModel)]=\"parent.phone\"\r\n            (ionBlur)=\"onBlurParentData()\"></ion-input>\r\n        </ion-item>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label>Email</ion-label>\r\n        </ion-item>\r\n        <ion-item lines=\"none\" class=\"input_box\">\r\n          <ion-label>\r\n            <ion-icon src=\"assets/icon/icon-email.svg\"></ion-icon>\r\n          </ion-label>\r\n          <ion-input type=\"text\" value=\"\" placeholder=\"johnsmith@xyz.com\" [(ngModel)]=\"parent.email\"\r\n            (ionBlur)=\"onBlurParentData()\"></ion-input>\r\n        </ion-item>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row>\r\n      <ion-col size=\"6\">\r\n        <ion-button mode=\"ios\" size=\"large\" expand=\"full\" color=\"light\" (click)=\"creditCardPage()\">\r\n          <div class=\"colored_buttons\">\r\n            <img src=\"/assets/icon/icon-card.svg\">\r\n            <ion-label style=\"display:block;font-size: 14px;\">Credit Cards</ion-label>\r\n          </div>\r\n        </ion-button>\r\n\r\n      </ion-col>\r\n\r\n      <ion-col size=\"6\">\r\n        <ion-button mode=\"ios\" size=\"large\" expand=\"full\" color=\"light\" (click)=\"nominas()\">\r\n          <div class=\"colored_buttons\">\r\n            <img src=\"/assets/icon/icon-ticket.svg\">\r\n            <ion-label style=\"display:block;font-size: 14px;\">Tickets</ion-label>\r\n          </div>\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <!-- <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label (click)=\"logOut()\">Logout</ion-label>\r\n        </ion-item> -->\r\n        <ion-button expand=\"full\" class=\"button-green\" color=\"button_color\" (click)=\"logOut()\">\r\n          Logout\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-toolbar transparent>\r\n    <ion-grid>\r\n      <ion-row class=\"footer_tab\">\r\n        <ion-col class=\"\" (click)=\"goToMyChild()\">\r\n          <i class=\"footer-icon child-face\"></i>\r\n          <small> My Kids </small>\r\n        </ion-col>\r\n        <ion-col (click)=\"goToActivityList()\">\r\n          <i class=\"football footer-icon\"></i>\r\n          <small> Activity</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToConversation()\">\r\n          <i class=\"footer-message footer-icon\"></i>\r\n          <small> Chat</small>\r\n        </ion-col>\r\n\r\n        <ion-col class=\"active\">\r\n          <i class=\"icon-User footer-icon\"></i>\r\n          <small> Profile </small>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </ion-toolbar>\r\n</ion-footer>"
+module.exports = "<!-- <ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>details</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content> -->\r\n<!--\r\n  Generated template for the DetailsPage page.\r\n\r\n  See http://ionicframework.com/docs/components/#navigation for more info on\r\n  Ionic pages and navigation.\r\n-->\r\n<ion-header>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      <img src=\"assets/imgs/logo-icon.png\" alt=\"\">\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid class=\"back_all\">\r\n    <ion-row>\r\n      <ion-col>\r\n        <div class=\"upload-plus\" [style.backgroundImage]=\"'url('+parent.photoUrl+')'\">\r\n          <i class=\"camera-icon\" (click)=\"uploadPhoto()\"></i>\r\n        </div>\r\n        <p class=\"upload-label\">Upload Photo</p>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label>Full Name</ion-label>\r\n        </ion-item>\r\n        <ion-item lines=\"none\" class=\"input_box\">\r\n          <ion-label>\r\n            <ion-icon src=\"assets/icon/icon-name.svg\"></ion-icon>\r\n          </ion-label>\r\n          <ion-input type=\"text\" value=\"\" placeholder=\"John Smith\" [(ngModel)]=\"parent.fullName\"\r\n            (ionBlur)=\"onBlurParentData()\">\r\n          </ion-input>\r\n        </ion-item>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label>Phone number</ion-label>\r\n        </ion-item>\r\n        <ion-item lines=\"none\" class=\"input_box\">\r\n          <ion-label>\r\n            <ion-icon src=\"assets/icon/icon-phone.svg\"></ion-icon>\r\n          </ion-label>\r\n          <ion-input type=\"text\" value=\"\" placeholder=\"+000 0000 000\" [(ngModel)]=\"parent.phone\"\r\n            (ionBlur)=\"onBlurParentData()\"></ion-input>\r\n        </ion-item>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label>Email</ion-label>\r\n        </ion-item>\r\n        <ion-item lines=\"none\" class=\"input_box\">\r\n          <ion-label>\r\n            <ion-icon src=\"assets/icon/icon-email.svg\"></ion-icon>\r\n          </ion-label>\r\n          <ion-input type=\"text\" value=\"\" placeholder=\"johnsmith@xyz.com\" [(ngModel)]=\"parent.email\"\r\n            (ionBlur)=\"onBlurParentData()\"></ion-input>\r\n        </ion-item>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row>\r\n      <ion-col size=\"6\">\r\n        <ion-button mode=\"ios\" size=\"large\" expand=\"full\" color=\"light\"\r\n          (click)=\"gotoCreditCard()\">\r\n          <div class=\"colored_buttons\">\r\n            <img src=\"/assets/icon/icon-card.svg\">\r\n            <ion-label style=\"display:block;font-size: 14px;\">Credit Cards</ion-label>\r\n          </div>\r\n        </ion-button>\r\n\r\n      </ion-col>\r\n\r\n      <ion-col size=\"6\">\r\n        <ion-button mode=\"ios\" size=\"large\" expand=\"full\" color=\"light\"\r\n          (click)=\"gotoTicket()\">\r\n          <div class=\"colored_buttons\">\r\n            <img src=\"/assets/icon/icon-ticket.svg\">\r\n            <ion-label style=\"display:block;font-size: 14px;\">Tickets</ion-label>\r\n          </div>\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col>\r\n        <!-- <ion-item lines=\"none\" class=\"form-control-label no-margin-top\">\r\n          <ion-label (click)=\"logOut()\">Logout</ion-label>\r\n        </ion-item> -->\r\n        <ion-button expand=\"full\" class=\"button-green\" color=\"button_color\" (click)=\"logOut()\">\r\n          Logout\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n<ion-footer no-border>\r\n  <ion-toolbar transparent>\r\n    <ion-grid>\r\n      <ion-row class=\"footer_tab\">\r\n        <ion-col class=\"\" (click)=\"goToMyChild()\">\r\n          <i class=\"footer-icon child-face\"></i>\r\n          <small> My Kids </small>\r\n        </ion-col>\r\n        <ion-col (click)=\"goToActivityList()\">\r\n          <i class=\"football footer-icon\"></i>\r\n          <small> Activity</small>\r\n        </ion-col>\r\n\r\n        <ion-col (click)=\"goToConversation()\">\r\n          <i class=\"footer-message footer-icon\"></i>\r\n          <small> Chat</small>\r\n        </ion-col>\r\n\r\n        <ion-col class=\"active\">\r\n          <i class=\"icon-User footer-icon\"></i>\r\n          <small> Profile </small>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </ion-toolbar>\r\n</ion-footer>"
 
 /***/ }),
 
@@ -91,6 +91,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_alert_message_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/alert-message.service */ "./src/app/services/alert-message.service.ts");
 /* harmony import */ var _services_loading_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/loading.service */ "./src/app/services/loading.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/es2015/index.js");
 
 
 
@@ -102,8 +103,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let DetailsPage = class DetailsPage {
-    constructor(auth, db, camera, file, alert, loadingService, router) {
+    constructor(auth, db, camera, file, alert, loadingService, router, afDatabase) {
         this.auth = auth;
         this.db = db;
         this.camera = camera;
@@ -111,6 +113,7 @@ let DetailsPage = class DetailsPage {
         this.alert = alert;
         this.loadingService = loadingService;
         this.router = router;
+        this.afDatabase = afDatabase;
         this.parent = {};
         this.urlToImage = "";
     }
@@ -119,17 +122,31 @@ let DetailsPage = class DetailsPage {
     ionViewWillEnter() {
         //get info of current parent from firebase
         //this.urlToImage = "../../assets/imgs/kids-1.png";
-        this.db.collection('parents').doc(this.auth.getUid()).valueChanges().subscribe(data => {
-            //console.log(data);
-            this.parent = data;
-            //console.log(this.parent.photoUrl);
-            if (this.parent.photoUrl == '' || this.parent.photoUrl == undefined) {
-                this.parent.photoUrl = this.urlToImage;
-            }
+        firebase__WEBPACK_IMPORTED_MODULE_6__["database"]().ref('/parents/').once('value', (snapshot) => {
+            snapshot.forEach(snap => {
+                if (snap.val().uid == this.auth.getUid()) {
+                    this.parent = snap.val();
+                    this.parentAutokey = snap.key;
+                    if (this.parent.photoUrl == '' || this.parent.photoUrl == undefined) {
+                        this.parent.photoUrl = this.urlToImage;
+                    }
+                    return;
+                }
+            });
         });
+        // this.db.collection('parents').doc(this.auth.getUid()).valueChanges().subscribe(data => {
+        //   //console.log(data);
+        //   this.parent = data;
+        //   //console.log(this.parent.photoUrl);
+        //   if (this.parent.photoUrl == '' || this.parent.photoUrl == undefined) {
+        //     this.parent.photoUrl = this.urlToImage;
+        //   }
+        // });
     }
     onBlurParentData() {
-        this.db.collection('parents').doc(this.auth.getUid()).update(this.parent);
+        console.log("this.paremt", this.parent);
+        firebase__WEBPACK_IMPORTED_MODULE_6__["database"]().ref('/parents').child(this.parentAutokey).update(this.parent);
+        //this.db.collection('parents').doc(this.auth.getUid()).update(this.parent);
     }
     uploadPhoto() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -211,11 +228,17 @@ let DetailsPage = class DetailsPage {
             });
         });
     }
+    gotoCreditCard() {
+        this.router.navigate(['/credit-card']);
+    }
+    gotoTicket() {
+        this.router.navigate(['/nominas']);
+    }
     goToMyChild() {
         this.router.navigate(['/my-child']);
     }
     goToActivityList() {
-        this.router.navigate(['activity-list']);
+        this.router.navigate(['/activity-list']);
     }
     goToConversation() {
         this.router.navigate(['/conversation']);
@@ -231,7 +254,8 @@ DetailsPage.ctorParameters = () => [
     { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_5__["File"] },
     { type: _services_alert_message_service__WEBPACK_IMPORTED_MODULE_7__["AlertMessageService"] },
     { type: _services_loading_service__WEBPACK_IMPORTED_MODULE_8__["LoadingService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
+    { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_10__["AngularFireDatabase"] }
 ];
 DetailsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -245,7 +269,8 @@ DetailsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_5__["File"],
         _services_alert_message_service__WEBPACK_IMPORTED_MODULE_7__["AlertMessageService"],
         _services_loading_service__WEBPACK_IMPORTED_MODULE_8__["LoadingService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
+        _angular_fire_database__WEBPACK_IMPORTED_MODULE_10__["AngularFireDatabase"]])
 ], DetailsPage);
 
 
